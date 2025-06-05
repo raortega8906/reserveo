@@ -7,55 +7,127 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+# 📅 Sistema de Gestión de Reservas (Laravel)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Este proyecto es un sistema de gestión de reservas para pymes, freelancers y profesionales independientes. Permite gestionar citas y reservas de manera sencilla con un panel de administración y un calendario integrado.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🚀 MVP: Producto Mínimo Viable
 
-## Learning Laravel
+### 🎯 Funcionalidades del MVP
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+✅ Autenticación y roles básicos (cliente y administrador).  
+✅ CRUD de reservas (crear, leer, actualizar y eliminar).  
+✅ Calendario básico (FullCalendar.js).  
+✅ Formulario de reserva con validación de fechas y horas.  
+✅ Dashboard para administrador con listado de reservas.  
+✅ Email de confirmación de reserva al cliente y al administrador.  
+✅ Base de datos estructurada (usuarios, reservas, servicios).
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 📋 Lista de Tareas del MVP
 
-## Laravel Sponsors
+### 1️⃣ Infraestructura
+- [ ] Crear repositorio y estructura de carpetas en Laravel.
+- [ ] Configurar base de datos y entorno (.env).
+- [ ] Instalar Laravel Breeze o Jetstream para autenticación.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 2️⃣ Modelado de Datos
+- [ ] Crear migraciones y modelos para:
+  - Users (con roles).
+  - Reservations.
+  - Services (opcional para MVP).
 
-### Premium Partners
+### 3️⃣ Lógica de Negocio
+- [ ] CRUD de reservas.
+- [ ] Validación de fechas y horarios (sin solapamientos).
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### 4️⃣ Interfaz de Usuario
+- [ ] Dashboard básico para administrador.
+- [ ] Formulario de reserva para cliente.
+- [ ] Calendario básico con FullCalendar.js.
 
-## Contributing
+### 5️⃣ Notificaciones
+- [ ] Enviar email de confirmación al cliente y administrador.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 6️⃣ Pruebas
+- [ ] Pruebas básicas de flujo de reservas (manuales o PHPUnit).
 
-## Code of Conduct
+### 7️⃣ Documentación
+- [ ] README inicial con pasos de despliegue.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+## 🌱 Funcionalidades Post-MVP
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+✅ Integración con Stripe para pagos.  
+✅ Integración con Google Calendar (OAuth).  
+✅ Roles adicionales (staff y permisos granulares).  
+✅ Gestión de disponibilidad (turnos y horarios).  
+✅ Filtros avanzados en el dashboard (fecha, servicio, estado).  
+✅ Notificaciones por SMS (Twilio).  
+✅ API RESTful para apps móviles.  
+✅ Dashboard de estadísticas (reservas por día, semana, mes).  
+✅ Multi-idioma e internacionalización.  
+✅ Multi-tenant (varios negocios en la misma app).  
+✅ Sistema de suscripciones SaaS (planes de pago).
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 🗂️ Roadmap de Versiones
+
+IDEA ──> MVP ──> V1.0 ──> V1.1 ──> V1.2 ──> V2.0
+
+MVP:
+  └─ Autenticación
+  └─ CRUD Reservas
+  └─ Calendario básico
+  └─ Emails
+
+V1.0:
+  └─ Stripe
+  └─ Google Calendar
+  └─ Roles Staff
+
+V1.1:
+  └─ Disponibilidad
+  └─ Filtros avanzados
+  └─ Notificaciones SMS
+
+V1.2:
+  └─ API RESTful
+  └─ Dashboard de estadísticas
+
+V2.0:
+  └─ Multi-tenant
+  └─ Suscripciones SaaS
+  └─ Multi-idioma
+
+---
+
+## 🛠️ Tecnologías Usadas
+
+- Laravel (backend)
+- MySQL (base de datos)
+- Laravel Breeze o Jetstream (autenticación)
+- FullCalendar.js (calendario)
+- TailwindCSS (opcional para el frontend)
+- PHPUnit (testing)
+
+---
+
+## 🚀 Cómo empezar
+
+```bash
+git clone https://github.com/tu_usuario/gestion-reservas-laravel.git
+cd gestion-reservas-laravel
+composer install
+cp .env.example .env
+php artisan key:generate
+# Configura la base de datos en .env
+php artisan migrate
+php artisan serve
+```
+¡Listo! Accede a http://localhost:8000.
