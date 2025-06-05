@@ -121,7 +121,7 @@ V2.0:
 ## 🚀 Cómo empezar
 
 ```bash
-git clone https://github.com/tu_usuario/gestion-reservas-laravel.git
+git clone https://github.com/raortega8906/reserveo.git
 cd gestion-reservas-laravel
 composer install
 cp .env.example .env
