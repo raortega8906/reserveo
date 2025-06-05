@@ -71,6 +71,7 @@ Este proyecto es un sistema de gestión de reservas para pymes, freelancers y pr
 
 ## 🗂️ Roadmap de Versiones
 
+```text
 IDEA ──> MVP ──> V1.0 ──> V1.1 ──> V1.2 ──> V2.0
 
 MVP:
@@ -97,6 +98,7 @@ V2.0:
   └─ Multi-tenant
   └─ Suscripciones SaaS
   └─ Multi-idioma
+```
 
 ---
 
