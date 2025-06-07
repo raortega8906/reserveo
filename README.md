@@ -126,3 +126,19 @@ php artisan migrate
 php artisan serve
 ```
 ¡Listo! Accede a http://localhost:8000.
+
+## 📫 Contribuciones
+
+¡Las contribuciones son bienvenidas! Si deseas contribuir a este proyecto, por favor sigue estos pasos:
+
+1. Haz un fork del repositorio.
+2. Crea una nueva rama (`git checkout -b feature/nueva-caracteristica`).
+3. Realiza tus cambios y haz commit (`git commit -m 'Añadir nueva característica'`).
+4. Haz push a la rama (`git push origin feature/nueva-caracteristica`).
+5. Crea un Pull Request.
+
+## 📄 Licencia
+
+Este proyecto está licenciado bajo la licencia [MIT](https://opensource.org/licenses/MIT). Puedes ver el archivo de licencia completo en [LICENSE](LICENSE).
+
+Gracias por tu interés en contribuir a este proyecto!
