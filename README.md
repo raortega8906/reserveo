@@ -29,9 +29,9 @@ Este proyecto es un sistema de gestión de reservas para pymes, freelancers y pr
 
 ### 2️⃣ Modelado de Datos
 - [ ] Crear migraciones y modelos para:
-  - Users (con roles).
-  - Reservations.
-  - Services (opcional para MVP).
+  - [ ] Users (con roles).
+  - [ ] Reservations.
+  - [ ] Services (opcional para MVP).
 
 ### 3️⃣ Lógica de Negocio
 - [ ] CRUD de reservas.
