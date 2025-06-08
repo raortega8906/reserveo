@@ -3,6 +3,14 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+// Midddleware para verificar el rol del usuario
+// Route::middleware(['role:admin,client'])->group(function () {
+//     // Rutas para admin y client
+//     Route::get('/', function () {
+//         return view('welcome');
+//     });
+// });
+
 Route::get('/', function () {
     return view('welcome');
 });
