@@ -23,9 +23,9 @@ Este proyecto es un sistema de gestión de reservas para pymes, freelancers y pr
 ## 📋 Lista de Tareas del MVP
 
 ### 1️⃣ Infraestructura
-- [ ] Crear repositorio y estructura de carpetas en Laravel.
-- [ ] Configurar base de datos y entorno (.env).
-- [ ] Instalar Laravel Breeze o Jetstream para autenticación.
+- [X] Crear repositorio y estructura de carpetas en Laravel.
+- [X] Configurar base de datos y entorno (.env).
+- [X] Instalar Laravel Breeze o Jetstream para autenticación.
 
 ### 2️⃣ Modelado de Datos
 - [ ] Crear migraciones y modelos para:
