@@ -24,9 +24,9 @@ class ReservationController extends Controller
 
     }
 
-    public function edit()
+    public function edit(Reservation $reservation)
     {
-
+        return view('admin.reservations.edit', compact('reservation'));
     }
 
     public function update()
