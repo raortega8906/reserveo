@@ -56,7 +56,7 @@ Este proyecto es un sistema de gestión de reservas para pymes, freelancers y pr
 
 ### 7️⃣ Documentación
 
--   [ ] README inicial con pasos de despliegue.
+-   [x] README inicial con pasos de despliegue.
 
 ---
 
