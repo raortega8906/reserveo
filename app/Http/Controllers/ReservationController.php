@@ -22,7 +22,13 @@ class ReservationController extends Controller
 
     public function store(StoreReservationRequest $request)
     {
+        $validated = $request->validated();
+        $validated['user_id'] = auth()->id();
+        $validated['status'] = 'pending';
+        
+        Reservation::create($validated);
 
+        return redirect()->route('admin.reservations.index')->with('message', 'Reserva creada correctamente');
     }
 
     public function edit(Reservation $reservation)
