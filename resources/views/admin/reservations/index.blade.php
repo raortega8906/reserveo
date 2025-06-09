@@ -1,10 +1,7 @@
-
-
-
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Reservas') }}
         </h2>
     </x-slot>
 
@@ -21,6 +18,11 @@
                             <td colspan="5">No reservations found.</td>
                         </tr>
                     @endforelse
+                </div>
+                <div class="p-6 text-gray-900">
+                    <a href="{{ route('admin.reservations.create') }}" class="text-blue-500 hover:underline">
+                        {{ __('Create Reservation') }}
+                    </a>
                 </div>
             </div>
         </div>
