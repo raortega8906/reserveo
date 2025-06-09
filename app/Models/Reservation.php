@@ -20,6 +20,10 @@ class Reservation extends Model
         'status' => 'string'
     ];
 
+    protected $attributes = [
+        'status' => 'pending',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

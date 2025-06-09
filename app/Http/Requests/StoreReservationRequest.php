@@ -11,7 +11,7 @@ class StoreReservationRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,11 @@ class StoreReservationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'user_id' => ['required', 'exists:users,id'], 
+            'reservation_date' => ['required', 'date', 'after_or_equal:today'], 
+            'reservation_time' => ['required', 'date_format:H:i'], 
+            'status' => ['nullable', 'in:pending,confirmed,cancelled'], 
+            'notes' => ['nullable', 'string', 'max:1000']
         ];
     }
 }

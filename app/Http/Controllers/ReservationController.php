@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreReservationRequest;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
 
@@ -19,9 +20,9 @@ class ReservationController extends Controller
         return view('admin.reservations.create');
     }
 
-    public function store()
+    public function store(StoreReservationRequest $request)
     {
-
+        
     }
 
     public function edit()
@@ -36,6 +37,6 @@ class ReservationController extends Controller
 
     public function destroy()
     {
-        
+
     }
 }
