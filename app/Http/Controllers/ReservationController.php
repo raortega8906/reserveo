@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreReservationRequest;
+use App\Http\Requests\UpdateReservationRequest;
 use App\Models\Reservation;
 
 class ReservationController extends Controller
@@ -29,12 +30,12 @@ class ReservationController extends Controller
         return view('admin.reservations.edit', compact('reservation'));
     }
 
-    public function update()
+    public function update(UpdateReservationRequest $request, Reservation $reservation)
     {
 
     }
 
-    public function destroy()
+    public function destroy(Reservation $reservation)
     {
 
     }
