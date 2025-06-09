@@ -23,33 +23,40 @@ Este proyecto es un sistema de gestión de reservas para pymes, freelancers y pr
 ## 📋 Lista de Tareas del MVP
 
 ### 1️⃣ Infraestructura
-- [X] Crear repositorio y estructura de carpetas en Laravel.
-- [X] Configurar base de datos y entorno (.env).
-- [X] Instalar Laravel Breeze o Jetstream para autenticación.
+
+-   [x] Crear repositorio y estructura de carpetas en Laravel.
+-   [x] Configurar base de datos y entorno (.env).
+-   [x] Instalar Laravel Breeze o Jetstream para autenticación.
 
 ### 2️⃣ Modelado de Datos
-- [ ] Crear migraciones y modelos para:
-  - [X] Users (con roles).
-  - [ ] Reservations.
-  - [ ] Services (opcional para MVP).
+
+-   [ ] Crear migraciones y modelos para:
+    -   [x] Users (con roles).
+    -   [x] Reservations.
+    -   [ ] Services (opcional para MVP).
 
 ### 3️⃣ Lógica de Negocio
-- [ ] CRUD de reservas.
-- [ ] Validación de fechas y horarios (sin solapamientos).
+
+-   [ ] CRUD de reservas.
+-   [ ] Validación de fechas y horarios (sin solapamientos).
 
 ### 4️⃣ Interfaz de Usuario
-- [ ] Dashboard básico para administrador.
-- [ ] Formulario de reserva para cliente.
-- [ ] Calendario básico con FullCalendar.js.
+
+-   [ ] Dashboard básico para administrador.
+-   [ ] Formulario de reserva para cliente.
+-   [ ] Calendario básico con FullCalendar.js.
 
 ### 5️⃣ Notificaciones
-- [ ] Enviar email de confirmación al cliente y administrador.
+
+-   [ ] Enviar email de confirmación al cliente y administrador.
 
 ### 6️⃣ Pruebas
-- [ ] Pruebas básicas de flujo de reservas (manuales o PHPUnit).
+
+-   [ ] Pruebas básicas de flujo de reservas (manuales o PHPUnit).
 
 ### 7️⃣ Documentación
-- [ ] README inicial con pasos de despliegue.
+
+-   [ ] README inicial con pasos de despliegue.
 
 ---
 
@@ -104,12 +111,12 @@ V2.0:
 
 ## 🛠️ Tecnologías Usadas
 
-- Laravel (backend)
-- MySQL (base de datos)
-- Laravel Breeze o Jetstream (autenticación)
-- FullCalendar.js (calendario)
-- TailwindCSS (opcional para el frontend)
-- PHPUnit (testing)
+-   Laravel (backend)
+-   MySQL (base de datos)
+-   Laravel Breeze o Jetstream (autenticación)
+-   FullCalendar.js (calendario)
+-   TailwindCSS (opcional para el frontend)
+-   PHPUnit (testing)
 
 ---
 
@@ -125,6 +132,7 @@ php artisan key:generate
 php artisan migrate
 php artisan serve
 ```
+
 ¡Listo! Accede a http://localhost:8000.
 
 ## 📫 Contribuciones
