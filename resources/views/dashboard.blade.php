@@ -10,9 +10,9 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     @if ( Auth::user()->role === 'admin' )
-                        <p>{{ __("Welcome, Admin!") }}</p>
+                        <p>{{ __("Bienvenido, Admin") }}</p>
                     @else
-                        <p>{{ __("Welcome, User!") }}</p>
+                        <p>{{ __("Bienvenido, Usuario") }}</p>
                     @endif
                 </div>
             </div>

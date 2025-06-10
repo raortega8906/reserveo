@@ -28,21 +28,21 @@
                             href="{{ url('/dashboard') }}"
                             class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
                         >
-                            Dashboard
+                           {{ __('Dashboard') }}
                         </a>
                     @else
                         <a
                             href="{{ route('login') }}"
                             class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] text-[#1b1b18] border border-transparent hover:border-[#19140035] dark:hover:border-[#3E3E3A] rounded-sm text-sm leading-normal"
                         >
-                            Log in
+                            {{ __('Iniciar sesión') }}
                         </a>
 
                         @if (Route::has('register'))
                             <a
                                 href="{{ route('register') }}"
                                 class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
-                                Register
+                                {{ __('Registrar') }}
                             </a>
                         @endif
                     @endauth
@@ -54,10 +54,10 @@
             {{-- Lannding para reserveo --}}
             <div class="text-center mb-6">
                 <h1 class="text-3xl lg:text-4xl font-bold mb-2 dark:text-[#EDEDEC] text-[#1b1b18]">
-                    Welcome to Reserveo
+                    {{ __('Bienvenido a Reserveo') }}
                 </h1>
                 <p class="text-sm lg:text-base text-[#1b1b18] dark:text-[#EDEDEC]">
-                    A simple and elegant reservation system for your business.
+                    {{ __('Un sistema de reservas simple y elegante para tu negocio.') }}
                 </p>
             </div>
             {{-- Image --}}
@@ -70,17 +70,17 @@
                     href="{{ route('register') }}"
                     class="inline-block px-6 py-2 bg-[#1b1b18] dark:bg-[#EDEDEC] text-white dark:text-[#1b1b18] rounded-md shadow hover:bg-[#191400] dark:hover:bg-[#EDEDEC] transition-colors"
                 >
-                    Get Started
+                    {{ __('Comenzar') }}
                 </a>
                 <p class="text-xs text-gray-500 dark:text-gray-400">
-                    Already have an account? <a href="{{ route('login') }}" class="text-blue-500 hover:underline">Log in</a>
+                    {{ __('¿Ya tienes una cuenta?') }} <a href="{{ route('login') }}" class="text-blue-500 hover:underline">{{ __('Iniciar sesión') }}</a>
                 </p>
             </div>
 
             {{-- Footer --}}
             <footer class="mt-8 text-xs text-gray-500 dark:text-gray-400">
-                &copy; {{ date('Y') }} Reserveo. All rights reserved.
-            </footer>   
+                &copy; {{ date('Y') }} {{ __('Reserveo. Todos los derechos reservados.') }}
+            </footer>
         </main>
 
         @if (Route::has('login'))

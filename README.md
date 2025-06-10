@@ -43,7 +43,6 @@ Este proyecto es un sistema de gestión de reservas para pymes, freelancers y pr
 ### 4️⃣ Interfaz de Usuario
 
 -   [x] Dashboard básico para administrador.
--   [ ] Definir idioma
 -   [x] Formulario de reserva para cliente.
 -   [ ] Calendario básico con FullCalendar.js.
 

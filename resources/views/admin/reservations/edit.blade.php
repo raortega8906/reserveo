@@ -19,15 +19,15 @@
                         @csrf
                         @method('PUT')  
                         <div class="mb-4">
-                            <label for="reservation_date" class="block text-gray-700">{{ __('Reservation Date') }}</label>
+                            <label for="reservation_date" class="block text-gray-700">{{ __('Fecha de Reserva') }}</label>
                             <input type="date" id="reservation_date" name="reservation_date" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" value="{{ $reservation->reservation_date }}" required>
                         </div>
                         <div class="mb-4">
-                            <label for="reservation_time" class="block text-gray-700">{{ __('Reservation Time') }}</label>
+                            <label for="reservation_time" class="block text-gray-700">{{ __('Hora de Reserva') }}</label>
                             <input type="time" id="reservation_time" name="reservation_time" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" value="{{ $reservation->reservation_time }}" required>
                         </div>
                         <div class="mb-4">
-                            <label for="notes" class="block text-gray-700">{{ __('Notes') }}</label>
+                            <label for="notes" class="block text-gray-700">{{ __('Notas') }}</label>
                             <textarea id="notes" name="notes" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50">{{ $reservation->notes }}</textarea>
                         </div>
                         <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
