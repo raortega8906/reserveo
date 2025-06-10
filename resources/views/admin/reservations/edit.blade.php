@@ -9,7 +9,9 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    {{ __('Formulario editar reservas') }}
+                    <a href="{{ route('admin.reservations.index') }}" class="border border-green-500 text-green-500 hover:underline bg-white-200 px-4 py-2 border-1 rounded">
+                        {{ __('Volver a las Reservas') }}
+                    </a>
                 </div>
 
                 <div class="p-6 text-gray-900">
@@ -42,12 +44,6 @@
                             </ul>
                         </div>
                     @endif
-                </div>
-
-                <div class="p-6 text-gray-900">
-                    <a href="{{ route('admin.reservations.index') }}" class="text-blue-500 hover:underline">
-                        {{ __('Go Reservations') }}
-                    </a>
                 </div>
             </div>
         </div>
