@@ -30,37 +30,40 @@ Este proyecto es un sistema de gestión de reservas para pymes, freelancers y pr
 
 ### 2️⃣ Modelado de Datos
 
--   [ ] Crear migraciones y modelos para:
+-   [x] Crear migraciones y modelos para:
     -   [x] Users (con roles).
     -   [x] Reservations.
-    -   [ ] Services (opcional para MVP).
 
 ### 3️⃣ Lógica de Negocio
 
 -   [x] CRUD de reservas.
 -   [x] Validación de fechas y horarios (sin solapamientos).
 
-### 4️⃣ Interfaz de Usuario
+### 4️⃣ Modelado de Datos y lógica de Negocio (opcional para MVP).
+
+-   [ ] Services
+
+### 5️⃣ Interfaz de Usuario
 
 -   [x] Dashboard básico para administrador.
 -   [x] Formulario de reserva para cliente.
 -   [ ] Calendario básico con FullCalendar.js.
 
-### 5️⃣ Notificaciones
+### 6️⃣ Notificaciones
 
 -   [ ] Enviar email de confirmación al cliente y administrador.
 
-### 6️⃣ Front
+### 7️⃣ Front
 
 -   [ ] Landing page del producto.
 -   [ ] Modificar Login y registro
 -   [ ] Modificar panel admin y vistas
 
-### 7️⃣ Pruebas
+### 8️⃣ Pruebas
 
 -   [ ] Pruebas básicas de flujo de reservas (manuales o PHPUnit).
 
-### 8️⃣ Documentación
+### 9️⃣ Documentación
 
 -   [x] README inicial con pasos de despliegue.
 
