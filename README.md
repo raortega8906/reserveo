@@ -54,6 +54,12 @@ Este proyecto es un sistema de gestión de reservas para pymes, freelancers y pr
 
 -   [ ] Pruebas básicas de flujo de reservas (manuales o PHPUnit).
 
+### 7️⃣ Front
+
+-   [ ] Landing page del producto.
+-   [ ] Modificar Login y registro
+-   [ ] Modificar panel admin y vistas
+
 ### 7️⃣ Documentación
 
 -   [x] README inicial con pasos de despliegue.
