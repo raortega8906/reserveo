@@ -27,6 +27,7 @@ Route::middleware('role:admin')->group(function () {
         Route::post('/reservation', [ReservationController::class, 'store'])->name('admin.reservations.store');
         Route::get('/reservations/{reservation}/edit', [ReservationController::class, 'edit'])->name('admin.reservations.edit');
         Route::put('/reservations/{reservation}', [ReservationController::class, 'update'])->name('admin.reservations.update');
+        Route::delete('/reservations/{reservation}', [ReservationController::class, 'destroy'])->name('admin.reservations.destroy');
     
     });
 });

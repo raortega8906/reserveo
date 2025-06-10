@@ -18,6 +18,13 @@
                             <td>
                                 <a href="{{ route('admin.reservations.edit', $reservation) }}" class="text-blue-500 hover:underline">{{ __('Edit') }}</a>
                             </td>
+                            <td>
+                                <form action="{{ route('admin.reservations.destroy', $reservation) }}" method="POST" onsubmit="return confirm('{{ __('Are you sure you want to delete this reservation?') }}');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="text-red-500 hover:underline">{{ __('Delete') }}</button>
+                                </form>
+                            </td>
                             <br>
                         </tr>
                     @empty
