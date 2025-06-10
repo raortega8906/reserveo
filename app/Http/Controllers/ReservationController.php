@@ -10,7 +10,7 @@ class ReservationController extends Controller
 {
     public function index()
     {
-        $reservations = Reservation::all();
+        $reservations = Reservation::orderBy('created_at', 'desc')->paginate(10);
 
         return view('admin.reservations.index', compact('reservations'));
     }
@@ -22,13 +22,26 @@ class ReservationController extends Controller
 
     public function store(StoreReservationRequest $request)
     {
+        $reservations = Reservation::all();
+
         $validated = $request->validated();
         $validated['user_id'] = auth()->id();
         $validated['status'] = 'pending';
+
+        foreach ($reservations as $reservation)
+        {
+            if ($reservation->reservation_date?->format('Y-m-d') === $validated['reservation_date'])
+            {
+                if ($reservation->reservation_time?->format('H:i') === $validated['reservation_time'])
+                {
+                    return redirect()->route('admin.reservations.index')->with('error', 'La reserva no se ha podido realizar');
+                }
+            }
+        }
         
         Reservation::create($validated);
 
-        return redirect()->route('admin.reservations.index')->with('message', 'Reserva creada correctamente');
+        return redirect()->route('admin.reservations.index')->with('success', 'Reserva creada correctamente');
     }
 
     public function edit(Reservation $reservation)
@@ -43,7 +56,7 @@ class ReservationController extends Controller
 
         $reservation->update($validated);
 
-        return redirect()->route('admin.reservations.index', compact('reservation'))->with('message', 'Reserva actualizada correctamente');
+        return redirect()->route('admin.reservations.index', compact('reservation'))->with('success', 'Reserva actualizada correctamente');
 
     }
 
@@ -51,6 +64,6 @@ class ReservationController extends Controller
     {
         $reservation->delete();
 
-        return redirect()->route('admin.reservations.index')->with('message', 'Reserva eliminada satisfactoriamente');
+        return redirect()->route('admin.reservations.index')->with('error', 'Reserva eliminada satisfactoriamente');
     }
 }
