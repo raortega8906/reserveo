@@ -37,7 +37,7 @@ Este proyecto es un sistema de gestión de reservas para pymes, freelancers y pr
 
 ### 3️⃣ Lógica de Negocio
 
--   [ ] CRUD de reservas.
+-   [x] CRUD de reservas.
 -   [ ] Validación de fechas y horarios (sin solapamientos).
 
 ### 4️⃣ Interfaz de Usuario
