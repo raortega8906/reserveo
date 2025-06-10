@@ -39,6 +39,12 @@ class ReservationController extends Controller
     public function update(UpdateReservationRequest $request, Reservation $reservation)
     {
 
+        $validated = $request->validated();
+
+        $reservation->update($validated);
+
+        return redirect()->route('admin.reservations.index', compact('reservation'))->with('message', 'Reserva actualizada correctamente');
+
     }
 
     public function destroy(Reservation $reservation)

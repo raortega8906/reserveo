@@ -14,6 +14,7 @@
                             <td>{{ $reservation->id }}</td>
                             <td>{{ $reservation->reservation_date }}</td>
                             <td>{{ $reservation->reservation_time }}</td>
+                            <td>{{ $reservation->notes }}</td>
                             <td>
                                 <a href="{{ route('admin.reservations.edit', $reservation) }}" class="text-blue-500 hover:underline">{{ __('Edit') }}</a>
                             </td>
