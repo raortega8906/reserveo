@@ -74,9 +74,15 @@ class ReservationController extends Controller
 
         foreach ($reservations as $reservation) {
             $events[] = [
-                'title' => 'reserva',
+                'title' => 'Reserva: ' . $reservation->user->name,
+                // 'email' => $reservation->user->email,
+                // 'color' => '#FF5733', // Color personalizado para las reservas
+                // 'textColor' => '#FFFFFF', // Color del texto
+                // 'borderColor' => '#FF5733', // Color del borde
+                // 'backgroundColor' => '#FF5733', // Color de fondo
                 'start' => $reservation->reservation_date?->format('Y-m-d') . ' ' . $reservation->reservation_time?->format('H:i'),
-                'end' => $reservation->reservation_date?->format('Y-m-d') . ' ' . $reservation->reservation_time?->addMinutes(30)->format('H:i'),
+                'end' => $reservation->reservation_date?->format('Y-m-d') . ' ' . $reservation->reservation_time?->addMinutes(60)->format('H:i'),
+                'notes' => $reservation->notes,
             ];
         }
 
