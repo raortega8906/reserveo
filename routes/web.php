@@ -32,9 +32,7 @@ Route::middleware('role:admin')->group(function () {
     });
 });
 
-// 
-Route::get('/calendar', function (){
-    return view('calendar');
-})->name('calendar.index');
+// Rutas calendario: 
+Route::get('/calendar', [ReservationController::class, 'calendar'])->name('calendar');
 
 require __DIR__.'/auth.php';

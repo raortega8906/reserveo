@@ -66,4 +66,9 @@ class ReservationController extends Controller
 
         return redirect()->route('admin.reservations.index')->with('error', 'Reserva eliminada satisfactoriamente');
     }
+
+    public function calendar()
+    {
+        return view('calendar');
+    }
 }
