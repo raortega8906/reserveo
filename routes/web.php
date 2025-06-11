@@ -32,4 +32,9 @@ Route::middleware('role:admin')->group(function () {
     });
 });
 
+// 
+Route::get('/calendar', function (){
+    return view('calendar');
+})->name('calendar.index');
+
 require __DIR__.'/auth.php';
