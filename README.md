@@ -143,9 +143,14 @@ V2.0:
 4. Ejecutar `php artisan key:generate`
 5. Ejecutar `$ php artisan migrate --seed`
 6. Ejecutar `$ php artisan serve`
-7. Iniciar sesión:
+7. Ejecutar en el navegador `http://127.0.0.1:8000`
+8. Iniciar sesión:
     - email: `admin@admin.com`
     - password: `admin`
+
+### Live Demo
+
+[https://pluginguard.wpcache.es/](https://pluginguard.wpcache.es/)
 
 ---
 
@@ -163,6 +168,6 @@ V2.0:
 
 ## 📄 Licencia
 
-Este proyecto está licenciado bajo la licencia [MIT](https://opensource.org/licenses/MIT). Puedes ver el archivo de licencia completo en [LICENSE](LICENSE).
+This project is open-source.
 
 Gracias por tu interés en contribuir a este proyecto!
