@@ -122,27 +122,32 @@ V2.0:
 
 -   Laravel (backend)
 -   MySQL (base de datos)
--   Laravel Breeze o Jetstream (autenticación)
+-   Laravel Breeze
 -   FullCalendar.js (calendario)
--   TailwindCSS (opcional para el frontend)
+-   TailwindCSS
 -   PHPUnit (testing)
+
+### Prerequisites
+
+-   PHP 8.2 o mayor
+-   MySQL 8.0 o mayor
+-   Composer 2.0 o mayor
 
 ---
 
 ## 🚀 Cómo empezar
 
-```bash
-git clone https://github.com/raortega8906/reserveo.git
-cd gestion-reservas-laravel
-composer install
-cp .env.example .env
-php artisan key:generate
-# Configura la base de datos en .env
-php artisan migrate
-php artisan serve
-```
+1. Clonar el repositorio
+2. Ejecutar `composer install`
+3. Copiar el fichero `.env.example` a `.env`
+4. Ejecutar `php artisan key:generate`
+5. Ejecutar `$ php artisan migrate --seed`
+6. Ejecutar `$ php artisan serve`
+7. Iniciar sesión:
+    - email: `admin@admin.com`
+    - password: `admin`
 
-¡Listo! Accede a http://localhost:8000.
+---
 
 ## 📫 Contribuciones
 
@@ -153,6 +158,8 @@ php artisan serve
 3. Realiza tus cambios y haz commit (`git commit -m 'Añadir nueva característica'`).
 4. Haz push a la rama (`git push origin feature/nueva-caracteristica`).
 5. Crea un Pull Request.
+
+---
 
 ## 📄 Licencia
 
