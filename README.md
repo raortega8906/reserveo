@@ -47,7 +47,7 @@ Este proyecto es un sistema de gestión de reservas para pymes, freelancers y pr
 
 -   [x] Dashboard básico para administrador.
 -   [x] Formulario de reserva para cliente.
--   [ ] Calendario básico con FullCalendar.js.
+-   [x] Calendario básico con FullCalendar.js.
 
 ### 6️⃣ Notificaciones
 
@@ -150,7 +150,7 @@ V2.0:
 
 ### Live Demo
 
-[https://pluginguard.wpcache.es/](https://pluginguard.wpcache.es/)
+[https://pluginguard.wpcache.es/](https://reserveo.wpcache.es/) (No disponible aún).
 
 ---
 
