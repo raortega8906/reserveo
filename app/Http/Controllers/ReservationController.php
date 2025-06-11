@@ -69,6 +69,17 @@ class ReservationController extends Controller
 
     public function calendar()
     {
-        return view('calendar');
+        $reservations = Reservation::all();
+        $events = [];
+
+        foreach ($reservations as $reservation) {
+            $events[] = [
+                'title' => 'reserva',
+                'start' => $reservation->reservation_date?->format('Y-m-d') . ' ' . $reservation->reservation_time?->format('H:i'),
+                'end' => $reservation->reservation_date?->format('Y-m-d') . ' ' . $reservation->reservation_time?->addMinutes(30)->format('H:i'),
+            ];
+        }
+
+        return view('calendar', compact('events'));
     }
 }
