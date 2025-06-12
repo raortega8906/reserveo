@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreServiceRequest;
 use App\Http\Requests\UpdateServiceRequest;
+use App\Mail\AdminEmailServiceConfirmation;
 use App\Models\Service;
+use Illuminate\Support\Facades\Mail;
 
 class ServiceController extends Controller
 {
@@ -24,7 +26,13 @@ class ServiceController extends Controller
     {
         $validated = $request->validated();
 
+        $user = auth()->user()->name;
+        $email = auth()->user()->email;
+        $service = $validated['name'];
+
         Service::create($validated);
+
+        Mail::to('raortega8906@gmail.com')->send(new AdminEmailServiceConfirmation($user, $email, $service));
 
         return redirect()->route('admin.services.index')->with('success', 'El servicio fue creado correctamente');
     }
