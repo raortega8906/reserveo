@@ -9,6 +9,7 @@ class Reservation extends Model
 {
     protected $fillable = [
         'user_id',
+        'service_id',
         'reservation_date',
         'reservation_time',
         'status',
@@ -28,6 +29,11 @@ class Reservation extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function service()
+    {
+        return $this->belongsTo(Service::class);
     }
 
     // Accessor para fecha formateada en español
