@@ -19,7 +19,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
 Route::middleware('role:admin')->group(function () {
     Route::prefix('admin')->group(function () {
         // Rutas reservas:
@@ -34,6 +33,9 @@ Route::middleware('role:admin')->group(function () {
         Route::get('/services', [ServiceController::class, 'index'])->name('admin.services.index');
         Route::get('/services/create', [ServiceController::class, 'create'])->name('admin.services.create');
         Route::post('/services', [ServiceController::class, 'store'])->name('admin.services.store');
+        Route::get('/services/{service}/edit', [ServiceController::class, 'edit'])->name('admin.services.edit');
+        Route::put('/services/{service}', [ServiceController::class, 'update'])->name('admin.services.update');
+        Route::delete('/services/{service}', [ServiceController::class, 'destroy'])->name('admin.services.destroy');
     });
 });
 
