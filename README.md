@@ -61,7 +61,8 @@ Este proyecto es un sistema de gestión de reservas para pymes, freelancers y pr
 
 ### 8️⃣ Pruebas
 
--   [ ] Pruebas básicas de flujo de reservas (manuales o PHPUnit).
+-   [ ] Revisar todo el flujo.
+-   [ ] Pruebas básicas de flujo de reservas (manuales y Pest).
 
 ### 9️⃣ Documentación
 
