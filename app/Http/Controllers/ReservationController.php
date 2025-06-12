@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreReservationRequest;
 use App\Http\Requests\UpdateReservationRequest;
+use App\Mail\AdminEmailConfirmation;
+use App\Mail\EmailConfirmation;
 use App\Models\Reservation;
+use Illuminate\Support\Facades\Mail;
 
 class ReservationController extends Controller
 {
@@ -28,6 +31,11 @@ class ReservationController extends Controller
         $validated['user_id'] = auth()->id();
         $validated['status'] = 'pending';
 
+        $user = auth()->user()->name;
+        $email = auth()->user()->email;
+        $reservation_date = $validated['reservation_date'] . ' ' . $validated['reservation_time'];
+
+
         foreach ($reservations as $reservation)
         {
             if ($reservation->reservation_date?->format('Y-m-d') === $validated['reservation_date'])
@@ -40,6 +48,9 @@ class ReservationController extends Controller
         }
         
         Reservation::create($validated);
+
+        Mail::to('raortega8906@gmail.com')->send(new AdminEmailConfirmation($user, $email, $reservation_date));
+        Mail::to($email)->send(new EmailConfirmation($user, $email, $reservation_date));
 
         return redirect()->route('admin.reservations.index')->with('success', 'Reserva creada correctamente');
     }

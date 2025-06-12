@@ -9,14 +9,14 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class EmailConfirmation extends Mailable
+class AdminEmailConfirmation extends Mailable
 {
     use Queueable, SerializesModels;
 
     public $user;
     public $email;
     public $reservation;
-   
+
     /**
      * Create a new message instance.
      */
@@ -33,7 +33,7 @@ class EmailConfirmation extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Email Confirmación',
+            subject: 'Admin Email Confirmation',
         );
     }
 
@@ -43,7 +43,7 @@ class EmailConfirmation extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.reservation-confirmation'
+            view: 'emails.admin.admin-reservation-confirmation',
         );
     }
 
