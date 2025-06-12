@@ -12,25 +12,29 @@ use Illuminate\Support\Facades\Mail;
 
 class ReservationController extends Controller
 {
-    public function index(Service $service)
+    public function index()
     {
+        $services = Service::all();
+
         $reservations = Reservation::orderBy('created_at', 'desc')->paginate(10);
 
-        return view('admin.reservations.index', compact('reservations', 'service'));
+        return view('admin.reservations.index', compact('reservations', 'services'));
     }
 
-    public function create(Service $service)
+    public function create()
     {
-        return view('admin.reservations.create', compact('service'));
+        $services = Service::all();
+
+        return view('admin.reservations.create', compact('services'));
     }
 
-    public function store(StoreReservationRequest $request, Service $service)
+    public function store(StoreReservationRequest $request)
     {
         $reservations = Reservation::all();
 
         $validated = $request->validated();
         $validated['user_id'] = auth()->id();
-        $validated['service_id'] = 1; // Prueba de servicio, se puede cambiar según sea necesario
+        $validated['service_id'] = $request->service_id;
         $validated['status'] = 'pending';
 
         $user = auth()->user()->name;
@@ -54,18 +58,21 @@ class ReservationController extends Controller
         Mail::to('raortega8906@gmail.com')->send(new AdminEmailConfirmation($user, $email, $reservation_date));
         Mail::to($email)->send(new EmailConfirmation($user, $email, $reservation_date));
 
-        return redirect()->route('admin.reservations.index', compact('service'))->with('success', 'Reserva creada correctamente');
+        return redirect()->route('admin.reservations.index')->with('success', 'Reserva creada correctamente');
     }
 
-    public function edit(Reservation $reservation, Service $service)
+    public function edit(Reservation $reservation)
     {
-        return view('admin.reservations.edit', compact('reservation', 'service'));
+        $services = Service::all();
+
+        return view('admin.reservations.edit', compact('reservation', 'services'));
     }
 
-    public function update(UpdateReservationRequest $request, Reservation $reservation, Service $service)
+    public function update(UpdateReservationRequest $request, Reservation $reservation)
     {
 
         $validated = $request->validated();
+        $validated['service_id'] = $request->service_id;
 
         $reservation->update($validated);
 
@@ -77,7 +84,7 @@ class ReservationController extends Controller
     {
         $reservation->delete();
 
-        return redirect()->route('admin.reservations.index', compact('service'))->with('error', 'Reserva eliminada satisfactoriamente');
+        return redirect()->route('admin.reservations.index')->with('error', 'Reserva eliminada satisfactoriamente');
     }
 
     public function calendar()

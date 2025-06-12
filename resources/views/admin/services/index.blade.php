@@ -27,6 +27,7 @@
                         <thead>
                             <tr>
                                 <th class="py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ __('ID de Servicio') }}</th>
+                                <th class="py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ __('Nombre del Servicio') }}</th>
                                 <th class="py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ __('Descripción') }}</th>
                                 <th class="py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ __('Duración (minutos)') }}</th>
                                 <th class="py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ __('Acciones') }}</th>
@@ -36,6 +37,7 @@
                         @forelse ($services as $service)
                             <tr>
                                 <td class="py-4 whitespace-nowrap">{{ $service->id }}</td>
+                                <td class="py-4 whitespace-nowrap">{{ $service->name }}</td>
                                 <td class="py-4 whitespace-nowrap">{{ $service->description }}</td>
                                 <td class="py-4 whitespace-nowrap">{{ $service->duration_service }}</td>
                                 <td class="flex gap-2 py-4 whitespace-nowrap">
