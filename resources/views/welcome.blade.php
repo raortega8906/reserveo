@@ -72,7 +72,7 @@
                     </div>
                     <div class="flex justify-center">
                         <div class="relative w-full max-w-lg aspect-video rounded-lg overflow-hidden shadow-lg bg-gray-100">
-                            <img src="/placeholder.svg?height=400&width=600" alt="Reserveo Dashboard" class="w-full h-full object-cover" />
+                            <img src="{{ asset('assets/images/image.png') }}" alt="Reserveo Dashboard" class="w-full h-full object-cover" />
                         </div>
                     </div>
                 </div>
