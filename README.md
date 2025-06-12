@@ -41,7 +41,7 @@ Este proyecto es un sistema de gestión de reservas para pymes, freelancers y pr
 
 ### 4️⃣ Modelado de Datos y lógica de Negocio (opcional para MVP).
 
--   [ ] Servicios
+-   [x] Servicios
 
 ### 5️⃣ Interfaz de Usuario
 
