@@ -25,13 +25,15 @@ Route::middleware('role:admin')->group(function () {
         // Rutas reservas:
         Route::get('/reservations', [ReservationController::class, 'index'])->name('admin.reservations.index');
         Route::get('/reservations/create', [ReservationController::class, 'create'])->name('admin.reservations.create');
-        Route::post('/reservation', [ReservationController::class, 'store'])->name('admin.reservations.store');
+        Route::post('/reservations', [ReservationController::class, 'store'])->name('admin.reservations.store');
         Route::get('/reservations/{reservation}/edit', [ReservationController::class, 'edit'])->name('admin.reservations.edit');
         Route::put('/reservations/{reservation}', [ReservationController::class, 'update'])->name('admin.reservations.update');
         Route::delete('/reservations/{reservation}', [ReservationController::class, 'destroy'])->name('admin.reservations.destroy');
     
         // Rutas servicios:
         Route::get('/services', [ServiceController::class, 'index'])->name('admin.services.index');
+        Route::get('/services/create', [ServiceController::class, 'create'])->name('admin.services.create');
+        Route::post('/services', [ServiceController::class, 'store'])->name('admin.services.store');
     });
 });
 

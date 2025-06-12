@@ -27,19 +27,24 @@
                         <thead>
                             <tr>
                                 <th class="py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ __('ID de Servicio') }}</th>
+                                <th class="py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ __('Descripción') }}</th>
+                                <th class="py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ __('Duración (minutos)') }}</th>
+                                <th class="py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ __('Acciones') }}</th>
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
                         @forelse ($services as $service)
                             <tr>
                                 <td class="py-4 whitespace-nowrap">{{ $service->id }}</td>
+                                <td class="py-4 whitespace-nowrap">{{ $service->description }}</td>
+                                <td class="py-4 whitespace-nowrap">{{ $service->duration_service }}</td>
                                 <td class="flex gap-2 py-4 whitespace-nowrap">
-                                    {{-- <a href="{{ route('admin.reservations.edit', $reservation) }}" class="text-blue-500 hover:underline">{{ __('Editar') }}</a>
-                                    <form action="{{ route('admin.reservations.destroy', $reservation) }}" method="POST" onsubmit="return confirm('{{ __('¿Estás seguro de que deseas eliminar esta reserva?') }}');">
+                                    <a href="{{ route('admin.services.edit', $service) }}" class="text-blue-500 hover:underline">{{ __('Editar') }}</a>
+                                    <form action="{{ route('admin.services.destroy', $service) }}" method="POST" onsubmit="return confirm('{{ __('¿Estás seguro de que deseas eliminar este servicio?') }}');">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="text-red-500 hover:underline">{{ __('Eliminar') }}</button>
-                                    </form> --}}
+                                    </form>
                                 </td>
                             </tr>
                         @empty
@@ -55,9 +60,9 @@
                     </div>
                 </div>
                 <div class="p-6 text-gray-900">
-                    {{-- <a href="{{ route('admin.services.create') }}" class="border border-green-500 text-green-500 hover:underline bg-white-200 px-4 py-2 border-1 rounded">
+                    <a href="{{ route('admin.services.create') }}" class="border border-green-500 text-green-500 hover:underline bg-white-200 px-4 py-2 border-1 rounded">
                         {{ __('Crear Servicio') }}
-                    </a> --}}
+                    </a>
                 </div>
             </div>
         </div>
