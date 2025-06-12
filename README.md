@@ -51,7 +51,7 @@ Este proyecto es un sistema de gestión de reservas para pymes, freelancers y pr
 
 ### 6️⃣ Notificaciones
 
--   [ ] Enviar email de confirmación al cliente y administrador.
+-   [x] Enviar email de confirmación al cliente y administrador.
 
 ### 7️⃣ Front
 
