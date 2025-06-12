@@ -13,12 +13,18 @@ class EmailConfirmation extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $user;
+    public $email;
+    public $reservation;
+   
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($user, $email, $reservation)
     {
-        //
+        $this->user = $user;
+        $this->email = $email;
+        $this->reservation = $reservation;
     }
 
     /**
@@ -37,7 +43,7 @@ class EmailConfirmation extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'emails.reservation-confirmation'
         );
     }
 
