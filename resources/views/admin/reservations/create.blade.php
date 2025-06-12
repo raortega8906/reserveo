@@ -29,6 +29,15 @@
                             <label for="notes" class="block text-gray-700">{{ __('Notas') }}</label>
                             <textarea id="notes" name="notes" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"></textarea>
                         </div>
+                        {{-- <div class="mb-4">
+                            <label for="service_id" class="block text-gray-700">{{ __('Servicio Contratado') }}</label>
+                            <select id="service_id" name="service_id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" required>
+                                <option value="" disabled selected>{{ __('Seleccione un servicio') }}</option>
+                                @foreach ($services as $service)
+                                    <option value="{{ $service->id }}">{{ $service->name }}</option>
+                                @endforeach
+                            </select>
+                        </div> --}}
                         <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
                             {{ __('Crear Reserva') }}
                         </button>
