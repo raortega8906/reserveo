@@ -89,7 +89,16 @@ class ReservationController extends Controller
 
     public function calendar()
     {
-        $reservations = Reservation::all();
+        if (auth()->user()->role === 'admin')
+        {
+            $reservations = Reservation::orderBy('reservation_date', 'asc')->get();
+        } else {
+            // Si el usuario no es admin, solo mostrar sus propias reservas
+            $reservations = Reservation::where('user_id', auth()->id())
+                ->orderBy('reservation_date', 'asc')
+                ->get();
+        }
+
         $events = [];
 
         foreach ($reservations as $reservation) {
