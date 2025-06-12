@@ -30,7 +30,7 @@ class ReservationController extends Controller
 
         $validated = $request->validated();
         $validated['user_id'] = auth()->id();
-        $validated['service_id'] = $service->name; // Prueba de servicio, se puede cambiar según sea necesario
+        $validated['service_id'] = 1; // Prueba de servicio, se puede cambiar según sea necesario
         $validated['status'] = 'pending';
 
         $user = auth()->user()->name;
