@@ -56,7 +56,7 @@ Este proyecto es un sistema de gestión de reservas para pymes, freelancers y pr
 ### 7️⃣ Front
 
 -   [x] Landing page del producto.
--   [ ] Modificar Login y registro
+-   [x] Modificar Login y registro
 -   [ ] Modificar panel admin y vistas
 
 ### 8️⃣ Pruebas
