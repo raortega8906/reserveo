@@ -150,7 +150,7 @@ V2.0:
 
 ### Live Demo
 
-[https://pluginguard.wpcache.es/](https://reserveo.wpcache.es/) (No disponible aún).
+[https://reserveo.wpcache.es/](https://reserveo.wpcache.es/) (No disponible aún).
 
 ---
 
