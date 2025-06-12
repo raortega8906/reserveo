@@ -19,6 +19,9 @@
                         {{ __('Calendario') }}
                     </x-nav-link>
                     @if (Auth::user()->role === 'admin')
+                        <x-nav-link :href="route('admin.services.index')" :active="request()->routeIs('admin.services.index')">
+                            {{ __('Servicios') }}
+                        </x-nav-link>
                         <x-nav-link :href="route('admin.reservations.index')" :active="request()->routeIs('admin.reservations.index')">
                             {{ __('Reservas') }}
                         </x-nav-link>

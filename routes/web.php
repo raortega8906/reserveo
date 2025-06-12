@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -18,10 +19,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Rutas reservas:
+
 Route::middleware('role:admin')->group(function () {
     Route::prefix('admin')->group(function () {
-
+        // Rutas reservas:
         Route::get('/reservations', [ReservationController::class, 'index'])->name('admin.reservations.index');
         Route::get('/reservations/create', [ReservationController::class, 'create'])->name('admin.reservations.create');
         Route::post('/reservation', [ReservationController::class, 'store'])->name('admin.reservations.store');
@@ -29,6 +30,8 @@ Route::middleware('role:admin')->group(function () {
         Route::put('/reservations/{reservation}', [ReservationController::class, 'update'])->name('admin.reservations.update');
         Route::delete('/reservations/{reservation}', [ReservationController::class, 'destroy'])->name('admin.reservations.destroy');
     
+        // Rutas servicios:
+        Route::get('/services', [ServiceController::class, 'index'])->name('admin.services.index');
     });
 });
 
