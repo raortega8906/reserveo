@@ -10,6 +10,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Dashboard
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [ReservationController::class, 'allReservations'])->name('dashboard');
+});
+
 // Perfil
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -18,9 +23,6 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('role:admin')->group(function () {
-
-    // Dashboard
-    Route::get('/dashboard', [ReservationController::class, 'allReservations'])->name('dashboard');
 
     Route::prefix('admin')->group(function () {
 

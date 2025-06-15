@@ -21,6 +21,8 @@
                                         <th class="py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ __("Usuario") }}</th>
                                         <th class="py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ __("Fecha") }}</th>
                                         <th class="py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ __("Hora") }}</th>
+                                        <th class="py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ __("Notas") }}</th>
+                                        <th class="py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ __("Servicio") }}</th>
                                         <th class="py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ __("Estado") }}</th>
                                     </tr>
                                 </thead>
@@ -28,8 +30,10 @@
                                     @foreach ($all_reservations as $reservation)
                                         <tr>
                                             <td class="py-4 whitespace-nowrap">{{ $reservation->user->name }}</td>
-                                            <td class="py-4 whitespace-nowrap">{{ $reservation->reservation_date?->format('Y-m-d') }}</td>
-                                            <td class="py-4 whitespace-nowrap">{{ $reservation->reservation_time?->format('H:i') }}</td>
+                                            <td class="py-4 whitespace-nowrap">{{ $reservation->formatted_date }}</td>
+                                            <td class="py-4 whitespace-nowrap">{{ $reservation->formatted_time }}</td>
+                                            <td class="py-4 whitespace-nowrap">{{ $reservation->notes }}</td>
+                                            <td class="py-4 whitespace-nowrap">{{ $reservation->service->name }}</td>
                                             <td class="py-4 whitespace-nowrap">{{ $reservation->status }}</td>
                                         </tr>
                                     @endforeach
