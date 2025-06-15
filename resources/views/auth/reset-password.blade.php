@@ -1,9 +1,6 @@
 <x-guest-layout>
     <div class="w-full sm:max-w-md px-6 py-8 bg-white shadow-md overflow-hidden sm:rounded-lg border border-gray-100">
         <div class="mb-8 text-center">
-            <a href="/" class="inline-block mb-4">
-                <h1 class="text-2xl font-bold text-black">Reserveo</h1>
-            </a>
             <h2 class="text-2xl font-bold text-black">{{ __('Restablecer contraseña') }}</h2>
         </div>
 

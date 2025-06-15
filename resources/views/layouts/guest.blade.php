@@ -27,8 +27,8 @@
 <body class="font-sans text-gray-900 antialiased h-full bg-gray-50">
     <div class="min-h-screen flex flex-col justify-center items-center">
         <div class="w-full sm:max-w-md mt-6 px-6 py-4">
-            <a href="/" class="flex justify-center mb-6">
-                <div class="text-2xl font-bold text-black dark:text-white">Reserveo</div>
+            <a href="/" class="flex justify-center mb-4">
+                <h1 class="text-2xl font-bold text-black">Reserveo</h1>
             </a>
         
         </div>
