@@ -5,14 +5,12 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
+// Landing
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
+// Perfil
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -20,7 +18,12 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('role:admin')->group(function () {
+
+    // Dashboard
+    Route::get('/dashboard', [ReservationController::class, 'allReservations'])->name('dashboard');
+
     Route::prefix('admin')->group(function () {
+
         // Rutas reservas:
         Route::get('/reservations', [ReservationController::class, 'index'])->name('admin.reservations.index');
         Route::get('/reservations/create', [ReservationController::class, 'create'])->name('admin.reservations.create');
@@ -36,6 +39,7 @@ Route::middleware('role:admin')->group(function () {
         Route::get('/services/{service}/edit', [ServiceController::class, 'edit'])->name('admin.services.edit');
         Route::put('/services/{service}', [ServiceController::class, 'update'])->name('admin.services.update');
         Route::delete('/services/{service}', [ServiceController::class, 'destroy'])->name('admin.services.destroy');
+
     });
 });
 

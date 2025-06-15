@@ -117,4 +117,12 @@ class ReservationController extends Controller
 
         return view('calendar', compact('events'));
     }
+
+    public function allReservations ()
+    {
+        $all_reservations = Reservation::all();
+
+        return view('dashboard', compact('all_reservations'));
+    }
+
 }
