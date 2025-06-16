@@ -15,6 +15,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [ReservationController::class, 'allReservations'])->name('dashboard');
 });
 
+// Rutas calendario: 
+Route::get('/calendar', [ReservationController::class, 'calendar'])->name('calendar');
+
+// Rutas reservas cliente:
+Route::get('/reservations/create', [ReservationController::class, 'createClient'])->name('reservations.create');
+Route::post('/calendar', [ReservationController::class, 'storeClient'])->name('reservations.store');
+
 // Perfil
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -44,8 +51,5 @@ Route::middleware('role:admin')->group(function () {
 
     });
 });
-
-// Rutas calendario: 
-Route::get('/calendar', [ReservationController::class, 'calendar'])->name('calendar');
 
 require __DIR__.'/auth.php';

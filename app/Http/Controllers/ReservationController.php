@@ -125,4 +125,23 @@ class ReservationController extends Controller
         return view('dashboard', compact('all_reservations'));
     }
 
+    public function createClient()
+    {
+        $services = Service::all();
+
+        return view('create-reservation', compact('services'));
+    }
+
+    public function storeClient(StoreReservationRequest $request)
+    {
+        $validated = $request->validated();
+        $validated['user_id'] = auth()->user()->id;
+        $validated['service_id'] = $request->input('service_id');
+        $validated['status'] = 'pending';
+
+        Reservation::create($validated);
+
+        return redirect()->route('reservations.store')->with('success', 'La reserva se ha creado correctamente');
+    }
+
 }
