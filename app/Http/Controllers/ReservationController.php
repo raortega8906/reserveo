@@ -119,7 +119,7 @@ class ReservationController extends Controller
 
     public function allReservations ()
     {
-        $all_reservations = Reservation::all();
+        $all_reservations = Reservation::orderBy('created_at', 'desc')->paginate(10);
 
         return view('dashboard', compact('all_reservations'));
     }
