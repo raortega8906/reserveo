@@ -173,7 +173,7 @@
                         <h3 class="text-sm font-semibold text-black uppercase tracking-wider">{{ __('Soporte') }}</h3>
                         <ul class="mt-4 space-y-2">
                             <li><a href="mailto:raortega8906@gmail.com" class="text-gray-600 hover:text-gray-900">{{ __('Contacto') }}</a></li>
-                            <li><a href="https://github.com/raortega8906/reserveo" class="text-gray-600 hover:text-gray-900">{{ __('Documentación') }}</a></li>
+                            <li><a href="https://github.com/raortega8906/reserveo" target="_blank" class="text-gray-600 hover:text-gray-900">{{ __('Documentación') }}</a></li>
                         </ul>
                     </div>
 
