@@ -5,12 +5,12 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
-// Landing
+// Landing:
 Route::get('/', function () {
     return view('welcome');
 });
 
-// Dashboard
+// Dashboard:
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [ReservationController::class, 'allReservations'])->name('dashboard');
 });
@@ -22,7 +22,7 @@ Route::get('/calendar', [ReservationController::class, 'calendar'])->name('calen
 Route::get('/reservations/create', [ReservationController::class, 'createClient'])->name('reservations.create');
 Route::post('/calendar', [ReservationController::class, 'storeClient'])->name('reservations.store');
 
-// Perfil
+// Perfil:
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
