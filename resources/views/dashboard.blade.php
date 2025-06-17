@@ -34,7 +34,13 @@
                                             <td class="py-4 whitespace-nowrap">{{ $reservation->formatted_time }}</td>
                                             <td class="py-4 whitespace-nowrap">{{ $reservation->notes }}</td>
                                             <td class="py-4 whitespace-nowrap">{{ $reservation->service->name }}</td>
-                                            <td class="py-4 whitespace-nowrap">{{ $reservation->status }}</td>
+                                            @if ($reservation->status === 'pending')
+                                                <td class="py-4 whitespace-nowrap text-yellow-500">{{ $reservation->status }}</td>
+                                            @elseif ($reservation->status === 'cancelled')
+                                                <td class="py-4 whitespace-nowrap text-red-500">{{ $reservation->status }}</td>
+                                            @else
+                                                <td class="py-4 whitespace-nowrap text-green-500">{{ $reservation->status }}</td>
+                                            @endif
                                         </tr>
                                     @endforeach
                                 </tbody>

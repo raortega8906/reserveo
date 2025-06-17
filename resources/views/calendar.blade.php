@@ -35,7 +35,7 @@
                 modalContent.innerHTML = `
                     <h2 class="text-lg font-semibold mb-4">Detalles del Evento</h2>
                     <p id="event-details"></p>
-                    <button id="close-modal" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded">Cerrar</button>
+                    <button id="close-modal" class="mt-4 px-4 py-2 bg-[#151e27] text-white rounded">Cerrar</button>
                 `;
                 modal.appendChild(modalContent);
                 document.body.appendChild(modal);
@@ -58,7 +58,7 @@
                     headerToolbar: {
                         left: 'prev,next today',
                         center: 'title',
-                        right: 'timeGridWeek,timeGridDay'
+                        right: 'dayGridMonth,timeGridWeek,timeGridDay'
                     },
                     eventClick: function(info) {
                         modal.style.display = 'flex';
