@@ -35,7 +35,6 @@ class ReservationController extends Controller
         $validated = $request->validated();
         $validated['user_id'] = auth()->id();
         $validated['service_id'] = $request->service_id;
-        $validated['status'] = 'pending';
 
         $user = auth()->user()->name;
         $email = auth()->user()->email;
@@ -137,7 +136,7 @@ class ReservationController extends Controller
         $validated = $request->validated();
         $validated['user_id'] = auth()->user()->id;
         $validated['service_id'] = $request->input('service_id');
-        $validated['status'] = 'pending';
+        $validated['status'] = 'confirmed';
 
         Reservation::create($validated);
 

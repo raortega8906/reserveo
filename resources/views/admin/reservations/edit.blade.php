@@ -31,6 +31,14 @@
                             <textarea id="notes" name="notes" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50">{{ $reservation->notes }}</textarea>
                         </div>
                         <div class="mb-4">
+                            <label for="status" class="block text-gray-700">{{ __('Estado') }}</label>
+                            <select id="status" name="status" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" required>
+                                <option value="confirmed" {{ $reservation->status === 'confirmed' ? 'selected' : '' }}>{{ __('Confirmado') }}</option>
+                                <option value="pending" {{ $reservation->status === 'pending' ? 'selected' : '' }}>{{ __('Pendiente') }}</option>
+                                <option value="cancelled" {{ $reservation->status === 'cancelled' ? 'selected' : '' }}>{{ __('Cancelado') }}</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
                             <label for="service_id" class="block text-gray-700">{{ __('Servicio Contratado') }}</label>
                             <select id="service_id" name="service_id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" required>
                                 <option value="" disabled>{{ __('Seleccione un servicio') }}</option>
