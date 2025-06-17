@@ -57,10 +57,11 @@ Este proyecto es un sistema de gestión de reservas para pymes, freelancers y pr
 
 -   [x] Landing page del producto.
 -   [x] Modificar Login y registro
--   [ ] Modificar panel admin y vistas
+-   [x] Modificar panel admin y vistas
 
 ### 8️⃣ Pruebas
 
+-   [ ] Validaciones principales.
 -   [ ] Revisar todo el flujo.
 -   [ ] Pruebas básicas de flujo de reservas (manuales y Pest).
 

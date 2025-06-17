@@ -44,11 +44,11 @@
                                 <td class="py-4 whitespace-nowrap">{{ $service->description }}</td>
                                 <td class="py-4 whitespace-nowrap">{{ $service->duration_service }}</td>
                                 <td class="flex gap-2 py-4 whitespace-nowrap">
-                                    <a href="{{ route('admin.services.edit', $service) }}" class="text-blue-500 hover:underline">{{ __('Editar') }}</a>
+                                    <a href="{{ route('admin.services.edit', $service) }}" class="bg-[#2c3e50] text-white px-4 rounded">{{ __('Editar') }}</a>
                                     <form action="{{ route('admin.services.destroy', $service) }}" method="POST" onsubmit="return confirm('{{ __('¿Estás seguro de que deseas eliminar este servicio?') }}');">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="text-red-500 hover:underline">{{ __('Eliminar') }}</button>
+                                        <button type="submit" class="bg-red-500 text-white px-4 rounded">{{ __('Eliminar') }}</button>
                                     </form>
                                 </td>
                             </tr>

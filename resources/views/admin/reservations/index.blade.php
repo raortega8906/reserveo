@@ -56,11 +56,11 @@
                                     <td class="py-4 whitespace-nowrap text-green-500">{{ $reservation->status }}</td>
                                 @endif
                                 <td class="flex gap-2 py-4 whitespace-nowrap">
-                                    <a href="{{ route('admin.reservations.edit', $reservation) }}" class="text-blue-500 hover:underline">{{ __('Editar') }}</a>
+                                    <a href="{{ route('admin.reservations.edit', $reservation) }}" class="bg-[#2c3e50] text-white px-4 rounded">{{ __('Editar') }}</a>
                                     <form action="{{ route('admin.reservations.destroy', $reservation) }}" method="POST" onsubmit="return confirm('{{ __('¿Estás seguro de que deseas eliminar esta reserva?') }}');">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="text-red-500 hover:underline">{{ __('Eliminar') }}</button>
+                                        <button type="submit" class="bg-red-500 text-white px-4 rounded">{{ __('Eliminar') }}</button>
                                     </form>
                                 </td>
                             </tr>
