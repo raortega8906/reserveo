@@ -22,6 +22,13 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+
+                <div class="p-6 text-gray-900">
+                    <a href="{{ route('admin.reservations.create') }}" class="bg-[#151e27] text-white px-4 py-2 rounded">
+                        {{ __('Crear Reserva') }}
+                    </a>
+                </div>
+
                 <div class="p-6 text-gray-900">
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead>
@@ -64,11 +71,6 @@
                     <div class="mt-4 flex justify-between items-center">
                         {{ $reservations->links() }}
                     </div>
-                </div>
-                <div class="p-6 text-gray-900">
-                    <a href="{{ route('admin.reservations.create') }}" class="border border-green-500 text-green-500 hover:underline bg-white-200 px-4 py-2 border-1 rounded">
-                        {{ __('Crear Reserva') }}
-                    </a>
                 </div>
             </div>
         </div>
