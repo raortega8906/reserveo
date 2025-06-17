@@ -212,8 +212,9 @@
 
             <!-- Page Heading -->
             @isset($header)
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                {{-- <header class="bg-white shadow mx-7 my-2 rounded max-w-7xl sm:px-6 lg:px-8"> --}}
+                <header class="bg-white shadow mx-auto rounded sm:px-6 lg:px-8">
+                    <div class="max-w-7xl py-5 px-4 sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>
                 </header>
