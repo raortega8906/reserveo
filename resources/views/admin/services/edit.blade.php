@@ -28,10 +28,17 @@
                         </div>
                         <div class="mb-4">
                             <label for="duration_service" class="block text-gray-700">{{ __('Duración (minutos)') }}</label>
-                            <input type="number" id="duration_service" name="duration_service" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" value="{{ $service->duration_service }}" required>
+                            <select id="duration_service" name="duration_service" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" required>
+                                <option value="15" {{ $service->duration_service == 15 ? 'selected' : '' }}>{{ __('15 minutos') }}</option>
+                                <option value="30" {{ $service->duration_service == 30 ? 'selected' : '' }}>{{ __('30 minutos') }}</option>
+                                <option value="45" {{ $service->duration_service == 45 ? 'selected' : '' }}>{{ __('45 minutos') }}</option>
+                                <option value="60" {{ $service->duration_service == 60 ? 'selected' : '' }}>{{ __('60 minutos') }}</option>
+                                <option value="90" {{ $service->duration_service == 90 ? 'selected' : '' }}>{{ __('90 minutos') }}</option>
+                                <option value="120" {{ $service->duration_service == 120 ? 'selected' : '' }}>{{ __('120 minutos') }}</option>
+                            </select>
                         </div>
                         <button type="submit" class="bg-[#151e27] text-white px-4 py-2 rounded">
-                            {{ __('Editar Servicio') }}
+                            {{ __('Actualizar Servicio') }}
                         </button>
                     </form>
 

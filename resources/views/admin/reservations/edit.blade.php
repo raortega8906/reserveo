@@ -48,7 +48,7 @@
                             </select>
                         </div>
                         <button type="submit" class="bg-[#151e27] text-white px-4 py-2 rounded">
-                            {{ __('Editar Reserva') }}
+                            {{ __('Actualizar Reserva') }}
                         </button>
                     </form>
 
