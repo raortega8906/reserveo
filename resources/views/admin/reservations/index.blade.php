@@ -72,8 +72,8 @@
                         </tbody>
                     </table>
 
-                    <div class="mt-4 flex justify-between items-center">
-                        {{ $reservations->links() }}
+                    <div class="mt-4 d-flex justify-content-between align-items-center flex-row">
+                        {{ $reservations->links('custom-pagination') }}
                     </div>
                 </div>
             </div>

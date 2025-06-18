@@ -45,6 +45,10 @@
                                     @endforeach
                                 </tbody>
                             </table>
+
+                            <div class="mt-4 d-flex justify-content-between align-items-center flex-row">
+                                {{ $all_reservations->links('custom-pagination') }}
+                            </div>
                         @endif
                     </div>
                 @else

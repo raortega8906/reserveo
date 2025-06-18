@@ -20,7 +20,7 @@
         <div class="hidden lg:flex lg:w-64 lg:flex-col lg:fixed lg:inset-y-0">
             <div class="flex flex-col flex-grow bg-white shadow-lg border-r border-gray-200">
                 <!-- Logo -->
-                <div class="flex items-center flex-shrink-0 px-6 py-4 border-b border-gray-200">
+                <div class="flex items-center flex-shrink-0 px-6 py-5 border-b border-gray-200">
                     <a href="{{ route('dashboard') }}" class="flex items-center">
                         <x-application-logo class="block h-8 w-auto fill-current text-gray-800" />
                     </a>
