@@ -150,14 +150,35 @@ class ReservationController extends Controller
 
     public function storeClient(StoreReservationRequest $request)
     {
+        $reservations = Reservation::all();
+
         $validated = $request->validated();
         $validated['user_id'] = auth()->user()->id;
         $validated['service_id'] = $request->input('service_id');
         $validated['status'] = 'confirmed';
 
+        $user = auth()->user()->name;
+        $email = auth()->user()->email;
+        $reservation_date = $validated['reservation_date'] . ' ' . $validated['reservation_time'];
+
+
+        foreach ($reservations as $reservation)
+        {
+            if ($reservation->reservation_date?->format('Y-m-d') === $validated['reservation_date'])
+            {
+                if ($reservation->reservation_time?->format('H:i') === $validated['reservation_time'])
+                {
+                    return redirect()->route('calendar')->with('error', 'La reserva no se ha podido realizar, el turno ya está ocupado');
+                }
+            }
+        }
+        
         Reservation::create($validated);
 
-        return redirect()->route('reservations.store')->with('success', 'La reserva se ha creado correctamente');
+        Mail::to('raortega8906@gmail.com')->send(new AdminEmailConfirmation($user, $email, $reservation_date));
+        Mail::to($email)->send(new EmailConfirmation($user, $email, $reservation_date));
+
+        return redirect()->route('calendar')->with('success', 'La reserva se ha creado correctamente');
     }
 
 }
