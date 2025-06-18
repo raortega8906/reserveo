@@ -23,7 +23,31 @@
                         </div>
                         <div class="mb-4">
                             <label for="reservation_time" class="block text-gray-700">{{ __('Hora de Reserva') }}</label>
-                            <input type="time" id="reservation_time" name="reservation_time" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" required>
+                            <select id="reservation_time" name="reservation_time" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" required>
+                                <option value="09:00">{{ __('09:00') }}</option>
+                                <option value="09:30">{{ __('09:30') }}</option>
+                                <option value="10:00">{{ __('10:00') }}</option>
+                                <option value="10:30">{{ __('10:30') }}</option>
+                                <option value="11:00">{{ __('11:00') }}</option>
+                                <option value="11:30">{{ __('11:30') }}</option>
+                                <option value="12:00">{{ __('12:00') }}</option>
+                                <option value="12:30">{{ __('12:30') }}</option>
+                                <option value="13:00">{{ __('13:00') }}</option>
+                                <option value="13:30">{{ __('13:30') }}</option>
+                                <option value="15:00">{{ __('15:00') }}</option>
+                                <option value="15:30">{{ __('15:30') }}</option>
+                                <option value="16:00">{{ __('16:00') }}</option>
+                                <option value="16:30">{{ __('16:30') }}</option>
+                                <option value="17:00">{{ __('17:00') }}</option>
+                                <option value="17:30">{{ __('17:30') }}</option>
+                                <option value="18:00">{{ __('18:00') }}</option>
+                                <option value="18:30">{{ __('18:30') }}</option>
+                                <option value="19:00">{{ __('19:00') }}</option>
+                                <option value="19:30">{{ __('19:30') }}</option>
+                                <option value="20:00">{{ __('20:00') }}</option>
+                                <option value="20:30">{{ __('20:30') }}</option>
+                                <option value="21:00">{{ __('21:00') }}</option>
+                            </select>
                         </div>
                         <div class="mb-4">
                             <label for="notes" class="block text-gray-700">{{ __('Notas') }}</label>

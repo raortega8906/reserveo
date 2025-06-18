@@ -103,16 +103,31 @@ class ReservationController extends Controller
         foreach ($reservations as $reservation) {
             $events[] = [
                 'title' => 'Reserva: ' . $reservation->user->name,
-                // 'email' => $reservation->user->email,
-                // 'color' => '#FF5733', // Color personalizado para las reservas
-                // 'textColor' => '#FFFFFF', // Color del texto
-                // 'borderColor' => '#FF5733', // Color del borde
-                // 'backgroundColor' => '#FF5733', // Color de fondo
                 'start' => $reservation->reservation_date?->format('Y-m-d') . ' ' . $reservation->reservation_time?->format('H:i'),
                 'end' => $reservation->reservation_date?->format('Y-m-d') . ' ' . $reservation->reservation_time?->addMinutes(60)->format('H:i'),
                 'notes' => $reservation->notes,
             ];
         }
+
+        if (auth()->user()->role !== 'admin') {
+            $reservations_not_admin = Reservation::where('user_id', '!=', auth()->id())
+                ->orderBy('reservation_date', 'asc')
+                ->get();
+
+            foreach ($reservations_not_admin as $reservation) {
+                $events[] = [
+                    'title' => 'Reserva ocupada',
+                    'start' => $reservation->reservation_date?->format('Y-m-d') . ' ' . $reservation->reservation_time?->format('H:i'),
+                    'end' => $reservation->reservation_date?->format('Y-m-d') . ' ' . $reservation->reservation_time?->addMinutes(60)->format('H:i'),
+                    'notes' => $reservation->notes,
+                    'color' => '#FF5733', // Color personalizado para las reservas ocupadas
+                    'textColor' => '#FFFFFF', // Color del texto
+                    'borderColor' => '#FF5733', // Color del borde
+                    'backgroundColor' => '#FF5733', // Color de fondo
+                ];
+            }
+        }
+        
 
         return view('calendar', compact('events'));
     }
