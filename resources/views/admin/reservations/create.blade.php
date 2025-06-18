@@ -24,7 +24,6 @@
                         </div>
                         <div class="mb-4">
                             <label for="reservation_time" class="block text-gray-700">{{ __('Hora de Reserva') }}</label>
-                            {{-- <input type="time" id="reservation_time" name="reservation_time" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" required> --}}
                             <select id="reservation_time" name="reservation_time" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" required>
                                 <option value="09:00">{{ __('09:00') }}</option>
                                 <option value="09:30">{{ __('09:30') }}</option>
