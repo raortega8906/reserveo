@@ -8,6 +8,7 @@ use App\Mail\AdminEmailConfirmation;
 use App\Mail\EmailConfirmation;
 use App\Models\Reservation;
 use App\Models\Service;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 
 class ReservationController extends Controller
@@ -43,11 +44,11 @@ class ReservationController extends Controller
 
         foreach ($reservations as $reservation)
         {
-            if ($reservation->reservation_date?->format('Y-m-d') === $validated['reservation_date'])
+            if ($reservation->reservation_date?->format('Y-m-d') === $validated['reservation_date'] && $reservation->status != 'cancelled')
             {
                 if ($reservation->reservation_time?->format('H:i') === $validated['reservation_time'])
                 {
-                    return redirect()->route('admin.reservations.index')->with('error', 'La reserva no se ha podido realizar');
+                    return redirect()->route('admin.reservations.index')->with('error', 'La reserva no se ha podido realizar, el turno ya está ocupado');
                 }
             }
         }
@@ -88,47 +89,103 @@ class ReservationController extends Controller
 
     public function calendar()
     {
+
+        $events = [];
+        $carbon_date = Carbon::now();
+        $time = $carbon_date->format('H:i');
+        $date = $carbon_date->format('Y-m-d');
+
         if (auth()->user()->role === 'admin')
         {
             $reservations = Reservation::orderBy('reservation_date', 'asc')->get();
-        } else {
-            // Si el usuario no es admin, solo mostrar sus propias reservas
+        } 
+        else {
             $reservations = Reservation::where('user_id', auth()->id())
                 ->orderBy('reservation_date', 'asc')
                 ->get();
-        }
 
-        $events = [];
-
-        foreach ($reservations as $reservation) {
-            $events[] = [
-                'title' => 'Reserva: ' . $reservation->user->name,
-                'start' => $reservation->reservation_date?->format('Y-m-d') . ' ' . $reservation->reservation_time?->format('H:i'),
-                'end' => $reservation->reservation_date?->format('Y-m-d') . ' ' . $reservation->reservation_time?->addMinutes(60)->format('H:i'),
-                'notes' => $reservation->notes,
-            ];
-        }
-
-        if (auth()->user()->role !== 'admin') {
             $reservations_not_admin = Reservation::where('user_id', '!=', auth()->id())
                 ->orderBy('reservation_date', 'asc')
                 ->get();
 
             foreach ($reservations_not_admin as $reservation) {
-                $events[] = [
-                    'title' => 'Reserva ocupada',
-                    'start' => $reservation->reservation_date?->format('Y-m-d') . ' ' . $reservation->reservation_time?->format('H:i'),
-                    'end' => $reservation->reservation_date?->format('Y-m-d') . ' ' . $reservation->reservation_time?->addMinutes(60)->format('H:i'),
-                    'notes' => $reservation->notes,
-                    'color' => '#FF5733', // Color personalizado para las reservas ocupadas
-                    'textColor' => '#FFFFFF', // Color del texto
-                    'borderColor' => '#FF5733', // Color del borde
-                    'backgroundColor' => '#FF5733', // Color de fondo
-                ];
+
+                if($date <= $reservation->reservation_date?->format('Y-m-d') && $time <= $reservation->reservation_time?->format('H:i')) {
+                    $events[] = [
+                        'title' => 'Reserva ocupada',
+                        'start' => $reservation->reservation_date?->format('Y-m-d') . ' ' . $reservation->reservation_time?->format('H:i'),
+                        'end' => $reservation->reservation_date?->format('Y-m-d') . ' ' . $reservation->reservation_time?->addMinutes(60)->format('H:i'),
+                        'notes' => $reservation->notes,
+                        'color' => '#FF5733',
+                        'textColor' => '#FFFFFF',
+                        'borderColor' => '#FF5733',
+                        'backgroundColor' => '#FF5733',
+                    ];
+                }
+                else{
+                    continue;
+                }
+
             }
         }
-        
 
+        foreach ($reservations as $reservation) {
+
+            if($date <= $reservation->reservation_date?->format('Y-m-d') && $time <= $reservation->reservation_time?->format('H:i')) {
+
+                if ($reservation->status == 'confirmed') {
+                    $events[] = [
+                        'title' => 'Reserva: ' . $reservation->user->name,
+                        'start' => $reservation->reservation_date?->format('Y-m-d') . ' ' . $reservation->reservation_time?->format('H:i'),
+                        'end' => $reservation->reservation_date?->format('Y-m-d') . ' ' . $reservation->reservation_time?->addMinutes(60)->format('H:i'),
+                        'notes' => $reservation->notes,
+                        'color' => 'green',
+                        'textColor' => '#FFFFFF', 
+                        'borderColor' => 'green', 
+                        'backgroundColor' => 'green',
+                    ];
+                } 
+                elseif ($reservation->status == 'pending') {
+                    $events[] = [
+                        'title' => 'Reserva: ' . $reservation->user->name,
+                        'start' => $reservation->reservation_date?->format('Y-m-d') . ' ' . $reservation->reservation_time?->format('H:i'),
+                        'end' => $reservation->reservation_date?->format('Y-m-d') . ' ' . $reservation->reservation_time?->addMinutes(60)->format('H:i'),
+                        'notes' => $reservation->notes,
+                        'color' => 'yellow',
+                        'textColor' => '#000', 
+                        'borderColor' => 'yellow', 
+                        'backgroundColor' => 'yellow',
+                    ];
+                } 
+                else{
+                    $events[] = [
+                        'title' => 'Reserva: ' . $reservation->user->name,
+                        'start' => $reservation->reservation_date?->format('Y-m-d') . ' ' . $reservation->reservation_time?->format('H:i'),
+                        'end' => $reservation->reservation_date?->format('Y-m-d') . ' ' . $reservation->reservation_time?->addMinutes(60)->format('H:i'),
+                        'notes' => $reservation->notes,
+                        'color' => 'red',
+                        'textColor' => '#FFFFFF', 
+                        'borderColor' => 'red', 
+                        'backgroundColor' => 'red',
+                    ];
+                }
+                
+            }
+            else{
+                $events[] = [
+                    'title' => 'Reserva: ' . $reservation->user->name,
+                    'start' => $reservation->reservation_date?->format('Y-m-d') . ' ' . $reservation->reservation_time?->format('H:i'),
+                    'end' => $reservation->reservation_date?->format('Y-m-d') . ' ' . $reservation->reservation_time?->addMinutes(60)->format('H:i'),
+                    'notes' => 'Reserva finalizada',
+                    'color' => '#FF5733',
+                    'textColor' => '#FFFFFF',
+                    'borderColor' => '#FF5733',
+                    'backgroundColor' => '#FF5733',
+                ];
+            }
+
+        }
+        
         return view('calendar', compact('events'));
     }
 
@@ -164,7 +221,7 @@ class ReservationController extends Controller
 
         foreach ($reservations as $reservation)
         {
-            if ($reservation->reservation_date?->format('Y-m-d') === $validated['reservation_date'])
+            if ($reservation->reservation_date?->format('Y-m-d') === $validated['reservation_date'] && $reservation->status != 'cancelled')
             {
                 if ($reservation->reservation_time?->format('H:i') === $validated['reservation_time'])
                 {
