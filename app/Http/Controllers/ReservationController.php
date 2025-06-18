@@ -111,6 +111,10 @@ class ReservationController extends Controller
             foreach ($reservations_not_admin as $reservation) {
 
                 if($date <= $reservation->reservation_date?->format('Y-m-d') && $time <= $reservation->reservation_time?->format('H:i')) {
+                    if ($reservation->status == 'cancelled'){
+                        continue;
+                    }
+                    
                     $events[] = [
                         'title' => 'Reserva ocupada',
                         'start' => $reservation->reservation_date?->format('Y-m-d') . ' ' . $reservation->reservation_time?->format('H:i'),
