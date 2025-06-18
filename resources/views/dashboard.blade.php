@@ -11,10 +11,10 @@
                 @if ( Auth::user()->role === 'admin' )
                     <div class="p-6 text-gray-900">
 
-                        @if ($all_reservations->count() === 0)
+                        @if ($count === 0)
                             <h3 class="mt-2 mb-6 text-black-500">{{ __("No hay reservas registradas.") }}</h3>
                         @else
-                            <h3 class="mt-2 mb-6 text-black-500">{{ __("Total de reservas: :count", ['count' => $all_reservations->count()]) }}</h3>
+                            <h3 class="mt-2 mb-6 text-black-500">{{ __("Total de reservas: ") }} {{$count}}</h3>
                             <table class="min-w-full divide-y divide-gray-200">
                                 <thead>
                                     <tr>
