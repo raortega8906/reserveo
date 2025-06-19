@@ -143,10 +143,10 @@ class ReservationController extends Controller
                         'start' => $reservation->reservation_date?->format('Y-m-d') . ' ' . $reservation->reservation_time?->format('H:i'),
                         'end' => $reservation->reservation_date?->format('Y-m-d') . ' ' . $reservation->reservation_time?->addMinutes(60)->format('H:i'),
                         'notes' => $reservation->notes,
-                        'color' => 'green',
+                        'color' => '#22c55e',
                         'textColor' => '#FFFFFF', 
-                        'borderColor' => 'green', 
-                        'backgroundColor' => 'green',
+                        'borderColor' => '#22c55e', 
+                        'backgroundColor' => '#22c55e',
                     ];
                 } 
                 elseif ($reservation->status == 'pending') {
@@ -155,10 +155,10 @@ class ReservationController extends Controller
                         'start' => $reservation->reservation_date?->format('Y-m-d') . ' ' . $reservation->reservation_time?->format('H:i'),
                         'end' => $reservation->reservation_date?->format('Y-m-d') . ' ' . $reservation->reservation_time?->addMinutes(60)->format('H:i'),
                         'notes' => $reservation->notes,
-                        'color' => 'yellow',
-                        'textColor' => '#000', 
-                        'borderColor' => 'yellow', 
-                        'backgroundColor' => 'yellow',
+                        'color' => '#facc15',
+                        'textColor' => '#FFFFFF', 
+                        'borderColor' => '#facc15', 
+                        'backgroundColor' => '#facc15',
                     ];
                 } 
                 else{
@@ -167,10 +167,10 @@ class ReservationController extends Controller
                         'start' => $reservation->reservation_date?->format('Y-m-d') . ' ' . $reservation->reservation_time?->format('H:i'),
                         'end' => $reservation->reservation_date?->format('Y-m-d') . ' ' . $reservation->reservation_time?->addMinutes(60)->format('H:i'),
                         'notes' => $reservation->notes,
-                        'color' => 'red',
+                        'color' => '#ef4444',
                         'textColor' => '#FFFFFF', 
-                        'borderColor' => 'red', 
-                        'backgroundColor' => 'red',
+                        'borderColor' => '#ef4444', 
+                        'backgroundColor' => '#ef4444',
                     ];
                 }
                 
