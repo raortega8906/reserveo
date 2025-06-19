@@ -81,11 +81,6 @@
                             </div>
                         @endif
                     </div>
-                @else
-                    <div class="p-6 text-gray-900">
-                        <h3 class="text-lg font-semibold">{{ __("Panel de Usuario") }}</h3>
-                        <p>{{ __("Aquí puedes ver tus reservas y gestionar tu perfil.") }}</p>
-                    </div>
                 @endif
             </div>
         </div>
