@@ -12,7 +12,15 @@ Route::get('/', function () {
 
 // Dashboard:
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', [ReservationController::class, 'allReservations'])->name('dashboard');
+    Route::get('/dashboard', function () {
+        // Si el usuario es cliente, redirigir al calendario
+        if (auth()->user()->role == 'client') {
+            return redirect()->route('calendar');
+        }
+        
+        // Si es admin u otro rol, mostrar el dashboard normal
+        return app(ReservationController::class)->allReservations();
+    })->name('dashboard');
 });
 
 // Rutas calendario: 
