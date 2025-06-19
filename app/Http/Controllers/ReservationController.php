@@ -181,10 +181,10 @@ class ReservationController extends Controller
                     'start' => $reservation->reservation_date?->format('Y-m-d') . ' ' . $reservation->reservation_time?->format('H:i'),
                     'end' => $reservation->reservation_date?->format('Y-m-d') . ' ' . $reservation->reservation_time?->addMinutes(60)->format('H:i'),
                     'notes' => 'Reserva finalizada',
-                    'color' => '#0c0c0c',
+                    'color' => 'grey',
                     'textColor' => '#FFFFFF',
-                    'borderColor' => '#0c0c0c',
-                    'backgroundColor' => '#0c0c0c',
+                    'borderColor' => 'grey',
+                    'backgroundColor' => 'grey',
                 ];
             }
 
