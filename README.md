@@ -62,7 +62,7 @@ Este proyecto es un sistema de gestión de reservas para pymes, freelancers y pr
 ### 8️⃣ Pruebas
 
 -   [x] Validaciones principales.
--   [x] Revisar todo el flujo.
+-   [ ] Revisar todo el flujo.
 -   [ ] Pruebas básicas de flujo de reservas (manuales y Pest).
 
 ### 9️⃣ Documentación
