@@ -7,32 +7,34 @@
 
     <div class="py-12">
         
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 pb-12">
-            <div class="flex gap-4">
+        @if ( Auth::user()->role === 'admin' )
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 pb-12">
+                <div class="flex gap-4">
 
-                <div class="bg-green-500 text-white overflow-hidden shadow-sm sm:rounded-lg flex-1 flex flex-col items-center justify-center p-4">
-                    <p class="text-[20px]">{{ __("Reservas confirmadas") }}</p>
-                    <strong class="text-[40px]">{{ $count_confirmed }}</strong>
+                    <div class="bg-green-500 text-white overflow-hidden shadow-sm sm:rounded-lg flex-1 flex flex-col items-center justify-center p-4">
+                        <p class="text-[20px]">{{ __("Reservas confirmadas") }}</p>
+                        <strong class="text-[40px]">{{ $count_confirmed }}</strong>
+                    </div>
+
+                    <div class="bg-yellow-500 text-white overflow-hidden shadow-sm sm:rounded-lg flex-1 flex flex-col items-center justify-center p-4">
+                        <p class="text-[20px]">{{ __("Reservas pendientes") }}</p>
+                        <strong class="text-[40px]">{{ $count_pending }}</strong>
+                    </div>
+
+                    <div class="bg-red-500 text-white overflow-hidden shadow-sm sm:rounded-lg flex-1 flex flex-col items-center justify-center p-4">
+                        <p class="text-[20px]">{{ __("Reservas canceladas") }}</p>
+                        <strong class="text-[40px]">{{ $count_cancelled }}</strong>
+                    </div>
+
                 </div>
-
-                <div class="bg-yellow-500 text-white overflow-hidden shadow-sm sm:rounded-lg flex-1 flex flex-col items-center justify-center p-4">
-                    <p class="text-[20px]">{{ __("Reservas pendientes") }}</p>
-                    <strong class="text-[40px]">{{ $count_pending }}</strong>
-                </div>
-
-                <div class="bg-red-500 text-white overflow-hidden shadow-sm sm:rounded-lg flex-1 flex flex-col items-center justify-center p-4">
-                    <p class="text-[20px]">{{ __("Reservas canceladas") }}</p>
-                    <strong class="text-[40px]">{{ $count_cancelled }}</strong>
-                </div>
-
             </div>
-        </div>
 
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 pb-12">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div id="chart"></div>
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 pb-12">
+                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                    <div id="chart"></div>
+                </div>
             </div>
-        </div>
+        @endif
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
