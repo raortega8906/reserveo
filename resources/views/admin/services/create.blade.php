@@ -17,25 +17,32 @@
                 <div class="p-6 text-gray-900">
                     <form method="POST" action="{{ route('admin.services.store') }}">
                         @csrf
-                        <div class="mb-4">
-                            <label for="name" class="block text-gray-700">{{ __('Nombre del Servicio') }}</label>
-                            <input type="text" id="name" name="name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" required>
+                        
+                        <!-- Nombre y Duración en la misma fila -->
+                        <div class="flex gap-4 mb-4">
+                            <div class="flex-1">
+                                <label for="name" class="block text-gray-700">{{ __('Nombre del Servicio') }}</label>
+                                <input type="text" id="name" name="name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" required>
+                            </div>
+                            <div class="flex-1">
+                                <label for="duration_service" class="block text-gray-700">{{ __('Duración del Servicio (minutos)') }}</label>
+                                <select id="duration_service" name="duration_service" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" required>
+                                    <option value="15">{{ __('15 minutos') }}</option>
+                                    <option value="30">{{ __('30 minutos') }}</option>
+                                    <option value="45">{{ __('45 minutos') }}</option>
+                                    <option value="60">{{ __('60 minutos') }}</option>
+                                    <option value="90">{{ __('90 minutos') }}</option>
+                                    <option value="120">{{ __('120 minutos') }}</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="mb-4">
-                            <label for="duration_service" class="block text-gray-700">{{ __('Duración del Servicio (minutos)') }}</label>
-                            <select id="duration_service" name="duration_service" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" required>
-                                <option value="15">{{ __('15 minutos') }}</option>
-                                <option value="30">{{ __('30 minutos') }}</option>
-                                <option value="45">{{ __('45 minutos') }}</option>
-                                <option value="60">{{ __('60 minutos') }}</option>
-                                <option value="90">{{ __('90 minutos') }}</option>
-                                <option value="120">{{ __('120 minutos') }}</option>
-                            </select>
-                        </div>
+
+                        <!-- Descripción sola en una fila completa -->
                         <div class="mb-4">
                             <label for="description" class="block text-gray-700">{{ __('Descripción') }}</label>
                             <textarea id="description" name="description" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"></textarea>
                         </div>
+
                         <button type="submit" class="bg-[#151e27] text-white px-4 py-2 rounded">
                             {{ __('Crear Servicio') }}
                         </button>
