@@ -11,20 +11,26 @@
             <div class="flex gap-4">
 
                 <div class="bg-green-500 text-white overflow-hidden shadow-sm sm:rounded-lg flex-1 flex flex-col items-center justify-center p-4">
-                    <p class="text-[20px]">{{ __("Reservas confirmadas en el mes") }}</p>
+                    <p class="text-[20px]">{{ __("Reservas confirmadas") }}</p>
                     <strong class="text-[40px]">{{ $count_confirmed }}</strong>
                 </div>
 
                 <div class="bg-yellow-500 text-white overflow-hidden shadow-sm sm:rounded-lg flex-1 flex flex-col items-center justify-center p-4">
-                    <p class="text-[20px]">{{ __("Reservas pendientes en el mes") }}</p>
+                    <p class="text-[20px]">{{ __("Reservas pendientes") }}</p>
                     <strong class="text-[40px]">{{ $count_pending }}</strong>
                 </div>
 
                 <div class="bg-red-500 text-white overflow-hidden shadow-sm sm:rounded-lg flex-1 flex flex-col items-center justify-center p-4">
-                    <p class="text-[20px]">{{ __("Reservas canceladas en el mes") }}</p>
+                    <p class="text-[20px]">{{ __("Reservas canceladas") }}</p>
                     <strong class="text-[40px]">{{ $count_cancelled }}</strong>
                 </div>
 
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 pb-12">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div id="chart"></div>
             </div>
         </div>
 
@@ -82,4 +88,66 @@
             </div>
         </div>
     </div>
+
+    @push('scripts')
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var options = {
+                    chart: {
+                        type: 'bar',
+                        height: 350
+                    },
+                    series: [{
+                        name: '{{ __("Reservas") }}',
+                        data: [
+                            {{ $count_confirmed }},
+                            {{ $count_pending }},
+                            {{ $count_cancelled }}
+                        ]
+                    }],
+                    xaxis: {
+                        categories: [
+                            '{{ __("Confirmadas") }}',
+                            '{{ __("Pendientes") }}',
+                            '{{ __("Canceladas") }}'
+                        ]
+                    },
+                    colors: ['#22c55e', '#facc15', '#ef4444'],
+                    plotOptions: {
+                        bar: {
+                            distributed: true,
+                            horizontal: false,
+                            columnWidth: '60%'
+                        }
+                    },
+                    dataLabels: {
+                        enabled: true
+                    },
+                    legend: {
+                        show: false
+                    },
+                    title: {
+                        text: '{{ __("") }}',
+                        align: 'center',
+                        style: {
+                            fontSize: '16px',
+                            fontWeight: 'bold'
+                        }
+                    },
+                    grid: {
+                        borderColor: '#e7e7e7',
+                        row: {
+                            colors: ['#f3f3f3', 'transparent'],
+                            opacity: 0.5
+                        }
+                    }
+                };
+
+                var chart = new ApexCharts(document.querySelector("#chart"), options);
+                chart.render();
+            });
+        </script>
+    @endpush
+
 </x-app-layout>
