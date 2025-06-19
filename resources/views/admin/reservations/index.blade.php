@@ -47,11 +47,11 @@
                                 <td class="py-4 whitespace-nowrap">{{ $reservation->notes }}</td>
                                 <td class="py-4 whitespace-nowrap">{{ $reservation->service->name }}</td>
                                 @if ($reservation->status === 'pending')
-                                    <td class="py-4 whitespace-nowrap text-yellow-500">{{ $reservation->status }}</td>
+                                    <td class="py-4 whitespace-nowrap text-yellow-500">{{ __('Pendiente') }}</td>
                                 @elseif ($reservation->status === 'cancelled')
-                                    <td class="py-4 whitespace-nowrap text-red-500">{{ $reservation->status }}</td>
+                                    <td class="py-4 whitespace-nowrap text-red-500">{{ __('Cancelada') }}</td>
                                 @else
-                                    <td class="py-4 whitespace-nowrap text-green-500">{{ $reservation->status }}</td>
+                                    <td class="py-4 whitespace-nowrap text-green-500">{{ __('Confirmada') }}</td>
                                 @endif
                                 <td class="flex gap-2 py-4 whitespace-nowrap">
                                     <a href="{{ route('admin.reservations.edit', $reservation) }}" class="bg-[#2c3e50] text-white px-4 rounded">{{ __('Editar') }}</a>
