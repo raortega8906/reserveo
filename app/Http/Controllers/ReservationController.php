@@ -181,10 +181,10 @@ class ReservationController extends Controller
                     'start' => $reservation->reservation_date?->format('Y-m-d') . ' ' . $reservation->reservation_time?->format('H:i'),
                     'end' => $reservation->reservation_date?->format('Y-m-d') . ' ' . $reservation->reservation_time?->addMinutes(60)->format('H:i'),
                     'notes' => 'Reserva finalizada',
-                    'color' => '#FF5733',
+                    'color' => '#0c0c0c',
                     'textColor' => '#FFFFFF',
-                    'borderColor' => '#FF5733',
-                    'backgroundColor' => '#FF5733',
+                    'borderColor' => '#0c0c0c',
+                    'backgroundColor' => '#0c0c0c',
                 ];
             }
 
@@ -198,8 +198,15 @@ class ReservationController extends Controller
         $all_reservations = Reservation::orderBy('created_at', 'desc')->paginate(10);
 
         $count = Reservation::count();
+        $count_confirmed = Reservation::where('status', 'confirmed')->count();
+        $count_pending = Reservation::where('status', 'pending')->count();
+        $count_cancelled = Reservation::where('status', 'cancelled')->count();
 
-        return view('dashboard', compact('all_reservations', 'count'));
+        $reservations = Reservation::where('user_id', auth()->id())
+                ->orderBy('reservation_date', 'asc')
+                ->get();
+
+        return view('dashboard', compact('all_reservations', 'count', 'count_confirmed', 'count_pending', 'count_cancelled'));
     }
 
     public function createClient()

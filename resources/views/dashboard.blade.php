@@ -12,17 +12,17 @@
 
                 <div class="bg-green-500 text-white overflow-hidden shadow-sm sm:rounded-lg flex-1 flex flex-col items-center justify-center p-4">
                     <p class="text-[20px]">{{ __("Reservas confirmadas en el mes") }}</p>
-                    <strong class="text-[40px]">{{ __("30") }}</strong>
+                    <strong class="text-[40px]">{{ $count_confirmed }}</strong>
                 </div>
 
                 <div class="bg-yellow-500 text-white overflow-hidden shadow-sm sm:rounded-lg flex-1 flex flex-col items-center justify-center p-4">
                     <p class="text-[20px]">{{ __("Reservas pendientes en el mes") }}</p>
-                    <strong class="text-[40px]">{{ __("03") }}</strong>
+                    <strong class="text-[40px]">{{ $count_pending }}</strong>
                 </div>
 
                 <div class="bg-red-500 text-white overflow-hidden shadow-sm sm:rounded-lg flex-1 flex flex-col items-center justify-center p-4">
                     <p class="text-[20px]">{{ __("Reservas canceladas en el mes") }}</p>
-                    <strong class="text-[40px]">{{ __("05") }}</strong>
+                    <strong class="text-[40px]">{{ $count_cancelled }}</strong>
                 </div>
 
             </div>
