@@ -37,6 +37,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// Solo admin:
 Route::middleware('role:admin')->group(function () {
 
     Route::prefix('admin')->group(function () {
