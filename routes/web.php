@@ -18,7 +18,7 @@ Route::middleware(['auth'])->group(function () {
             return redirect()->route('calendar');
         }
         
-        // Si es admin
+        // Si es admin ir al dashboard
         return app(ReservationController::class)->allReservations();
     })->name('dashboard');
 });
