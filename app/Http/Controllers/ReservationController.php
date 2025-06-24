@@ -229,7 +229,6 @@ class ReservationController extends Controller
         $email = auth()->user()->email;
         $reservation_date = $validated['reservation_date'] . ' ' . $validated['reservation_time'];
 
-
         foreach ($reservations as $reservation)
         {
             if ($reservation->reservation_date?->format('Y-m-d') === $validated['reservation_date'] && $reservation->status != 'cancelled')
