@@ -23,4 +23,4 @@ jobs:
 
       - name: SSH and Pull Latest Code
         run: |
-          ssh root@217.154.3.82 "cd ../../var/vhosts/reserveo.wpcache.es/httpdocs/reserveo && git pull origin main" 
+          ssh root@217.154.3.82 "cd ../../var/www/vhosts/reserveo.wpcache.es/httpdocs/reserveo/ && git pull origin main" 
