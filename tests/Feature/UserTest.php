@@ -14,7 +14,7 @@ test('Administrators can access the Reservations list', function () {
     ]);
 
     actingAs($admin)
-        ->get('/admin/reservations/other')
+        ->get('/admin/reservations')
         ->assertStatus(200);
 });
 
