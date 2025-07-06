@@ -189,7 +189,7 @@
 
                 <div class="mt-12 border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center">
                     <p class="text-sm text-gray-500">
-                        &copy; {{ date('Y') }} {{ __('Reserveo. Desarrollado por ') }}<a href="https://portfolio.wpcache.es" target="_blank" class="font-medium text-gray-900">{{ __('Rafael A. Ortega') }}</a>
+                        &copy; {{ date('Y') }} {{ __('Reserveo. Desarrollado por - ') }}<a href="https://portfolio.wpcache.es" target="_blank" class="font-medium text-gray-900">{{ __('Rafael A. Ortega') }}</a>
                     </p>
                     <div class="mt-4 md:mt-0 flex space-x-6">
                         <!-- Social Links -->
