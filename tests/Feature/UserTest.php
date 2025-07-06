@@ -8,14 +8,13 @@ test('Administrators can access the Reservations list', function () {
 
     $admin = User::create([
         'name' => 'Admin User',
-        'last_name' => 'test',
         'email' => 'admin@example.com',
         'password' => bcrypt('password'),
         'role' => 'admin',
     ]);
 
     actingAs($admin)
-        ->get('/admin/reservations')
+        ->get('/admin/reservations/other')
         ->assertStatus(200);
 });
 
