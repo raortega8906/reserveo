@@ -35,7 +35,7 @@
         <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.17/index.global.min.js"></script>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
-                // crear modal
+                // Crear modal
                 const modal = document.createElement('div');
                 modal.id = 'event-modal';
                 modal.style.display = 'none';
@@ -55,7 +55,7 @@
                 });
                 modal.style.display = 'none';
 
-                // inicializar calendario
+                // Inicializar calendario
                 console.log(@json($events));
                 const calendarEl = document.getElementById('calendar');
                 const calendar = new FullCalendar.Calendar(calendarEl, {
