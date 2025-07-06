@@ -182,7 +182,6 @@
                         <h3 class="text-sm font-semibold text-black uppercase tracking-wider">{{ __('Producto') }}</h3>
                         <ul class="mt-4 space-y-2">
                             <li><a href="#features" class="text-gray-600 hover:text-gray-900">{{ __('Características') }}</a></li>
-                            {{-- <li><a href="#" class="text-gray-600 hover:text-gray-900">{{ __('Precios') }}</a></li> --}}
                         </ul>
                     </div>
 
