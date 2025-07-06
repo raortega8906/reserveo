@@ -1,4 +1,4 @@
-name: CI/CD Reserveo
+name: CI & Deploy Laravel
 
 on:
   push:
@@ -7,27 +7,42 @@ on:
 
 jobs:
   deploy:
-    name: Deploy Laravel to Production via SSH
+    name: CI & Deploy Laravel
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mbstring, pdo, pdo_mysql
+
+      - name: Install dependencies
+        run: |
+          cp .env.example .env
+          composer install --no-interaction --prefer-dist --optimize-autoloader
+          php artisan key:generate
+
+      - name: Run tests
+        run: php artisan test
+
       - name: Set up SSH
+        if: success()
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -H 217.154.3.82 >> ~/.ssh/known_hosts
 
-      - name: SSH and Pull Latest Code
+      - name: Deploy via SSH
+        if: success()
         run: |
-          ssh -o StrictHostKeyChecking=no root@217.154.3.82 << 'EOF'
-            git config --global --add safe.directory /var/www/vhosts/reserveo.wpcache.es/httpdocs/reserveo
-            cd /var/www/vhosts/reserveo.wpcache.es/httpdocs/reserveo
-            /opt/plesk/php/8.3/bin/php artisan test
-            git pull origin main
-            /opt/plesk/php/8.3/bin/php artisan config:cache
-            /opt/plesk/php/8.3/bin/php artisan route:cache
-          EOF
+          ssh -o StrictHostKeyChecking=no root@217.154.3.82 bash << 'EOF'
+          cd /var/www/vhosts/reserveo.wpcache.es/httpdocs/reserveo
+          git pull origin main
+          /opt/plesk/php/8.3/bin/php artisan config:cache
+          /opt/plesk/php/8.3/bin/php artisan route:cache
+            EOF
