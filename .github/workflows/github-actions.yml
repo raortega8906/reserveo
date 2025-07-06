@@ -40,9 +40,9 @@ jobs:
       - name: Deploy via SSH
         if: success()
         run: |
-          ssh -o StrictHostKeyChecking=no root@217.154.3.82 bash << 'EOF'
-          cd /var/www/vhosts/reserveo.wpcache.es/httpdocs/reserveo
-          git pull origin main
-          /opt/plesk/php/8.3/bin/php artisan config:cache
-          /opt/plesk/php/8.3/bin/php artisan route:cache
-            EOF
+            ssh -o StrictHostKeyChecking=no root@217.154.3.82 "
+                cd /var/www/vhosts/reserveo.wpcache.es/httpdocs/reserveo &&
+                git pull origin main &&
+                /opt/plesk/php/8.3/bin/php artisan config:cache &&
+                /opt/plesk/php/8.3/bin/php artisan route:cache
+            "
