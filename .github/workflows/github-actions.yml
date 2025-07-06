@@ -23,5 +23,9 @@ jobs:
 
       - name: SSH and Pull Latest Code
         run: |
-          ssh -o StrictHostKeyChecking=no root@217.154.3.82 \
-          "cd ../../var/www/vhosts/reserveo.wpcache.es/httpdocs/reserveo && git pull origin main"
+            ssh -o StrictHostKeyChecking=no root@217.154.3.82 << EOF
+            git config --global --add safe.directory /var/www/vhosts/reserveo.wpcache.es/httpdocs/reserveo
+            cd /var/www/vhosts/reserveo.wpcache.es/httpdocs/reserveo
+            git pull origin main
+            php artisan config:cache
+            php artisan route:cache
