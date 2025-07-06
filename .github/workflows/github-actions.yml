@@ -25,3 +25,4 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no root@217.154.3.82 \
           "cd /var/www/vhosts/reserveo.wpcache.es/httpdocs/reserveo && git pull origin main"
+          
