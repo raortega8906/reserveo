@@ -35,12 +35,12 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan -H 217.154.3.82 >> ~/.ssh/known_hosts
+          ssh-keyscan -H ${{ secrets.SSH_VP_HOST }} >> ~/.ssh/known_hosts
 
       - name: Deploy via SSH
         if: success()
         run: |
-            ssh -o StrictHostKeyChecking=no root@217.154.3.82 "
+            ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_VP_HOST }} "
                 cd /var/www/vhosts/reserveo.wpcache.es/httpdocs/reserveo &&
                 git pull origin main &&
                 /opt/plesk/php/8.3/bin/php artisan config:cache &&
